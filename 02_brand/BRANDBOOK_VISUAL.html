@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KIT — Editorial Noir · Визуальный брендбук</title>
+<title>КИТ — Editorial Noir · Визуальный брендбук</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --noir:#080808;
@@ -95,15 +95,31 @@
 
   /* Logo */
   .logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:32px;border:1px solid var(--paper-08)}
-  .logo-card{padding:80px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:340px;border-right:1px solid var(--paper-08)}
+  .logo-card{padding:64px 32px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:380px;border-right:1px solid var(--paper-08);position:relative}
   .logo-card:last-child{border-right:none}
   .logo-card.dark{background:var(--noir);color:var(--paper)}
   .logo-card.light{background:var(--paper);color:var(--noir)}
-  .logo-mark{font-size:96px;letter-spacing:-.04em;font-weight:300;line-height:1;margin-bottom:14px}
-  .logo-line{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:400}
-  .logo-line .em{width:18px;height:1px;background:var(--rose)}
-  .logo-card.light .logo-line .em{background:var(--rose)}
-  .logo-card .role{margin-top:32px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.5}
+  /* full lockup */
+  .lockup{display:flex;flex-direction:column;align-items:center;gap:18px}
+  .lockup .mark{width:64px;height:50px;color:currentColor}
+  .lockup .mark svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .lockup .wordmark{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:56px;letter-spacing:.15em;line-height:.9;margin-right:-.15em}
+  .lockup .script{font-family:'Caveat',cursive;font-weight:400;font-size:32px;line-height:.8;margin-top:-6px;position:relative;padding-bottom:6px}
+  .lockup .script::after{content:"";position:absolute;left:8%;right:8%;bottom:0;height:1px;background:currentColor;opacity:.7}
+  .lockup .tagline{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:9px;letter-spacing:.3em;text-transform:uppercase;margin-top:8px;opacity:.7}
+  /* mark only */
+  .lockup-mark{width:88px;height:70px;color:currentColor}
+  .lockup-mark svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  /* wordmark only */
+  .lockup-word{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:64px;letter-spacing:.15em;line-height:.9}
+  /* compact (mark + wordmark + script, no tagline) */
+  .lockup-compact{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .lockup-compact .mark{width:44px;height:36px;color:currentColor}
+  .lockup-compact .mark svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .lockup-compact .wordmark{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:36px;letter-spacing:.15em;line-height:.9;margin-right:-.15em}
+  .lockup-compact .script{font-family:'Caveat',cursive;font-weight:400;font-size:20px;line-height:.8;margin-top:-4px}
+  /* role label */
+  .logo-card .role{margin-top:36px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;opacity:.45;font-weight:400}
 
   /* IG grid mockup */
   .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;max-width:640px;border:1px solid var(--paper-08)}
@@ -160,7 +176,7 @@
 <body>
 
 <nav>
-  <div class="brand">KIT<span class="em" style="display:inline-block;width:14px;height:1px;background:var(--rose);margin:0 10px;vertical-align:middle"></span><span class="accent">Editorial Noir</span></div>
+  <div class="brand">КИТ<span class="em" style="display:inline-block;width:14px;height:1px;background:var(--rose);margin:0 10px;vertical-align:middle"></span><span class="accent">Editorial Noir</span></div>
   <ul>
     <li><a href="#palette">Палитра</a></li>
     <li><a href="#type">Типографика</a></li>
@@ -175,7 +191,7 @@
 <!-- Cover -->
 <section class="cover" id="cover">
   <span class="sec-label">Концепция 05 · на согласовании · май 2026</span>
-  <div class="word">KIT</div>
+  <div class="word">КИТ</div>
   <div class="word ghost">DECOR</div>
   <p class="sec-lead" style="margin-top:48px;max-width:520px">
     Чёрный. Белый. Один акцент. Безупречная типографика. Самый дерзкий и редакционный вариант — обложка журнала, а не каталог декора.
@@ -241,7 +257,7 @@
   <p class="sec-lead">Space Grotesk — единственный шрифт системы. Geometric sans с характером. Light 300 — почти весь текст. Иерархия строится не размером и весом, а letter-spacing и контрастом цветов.</p>
 
   <div class="type-card">
-    <div class="type-sample">KIT</div>
+    <div class="type-sample">КИТ</div>
     <div class="type-sample ghost" style="margin-bottom:48px">DECOR</div>
 
     <div class="type-row"><strong>Hero / лого</strong><span>Space Grotesk Light 300 · 64–96pt · letter-spacing -0.03em</span></div>
@@ -257,41 +273,84 @@
 <section id="logo">
   <span class="sec-label">03 — Логотип</span>
   <div class="sec-divider"></div>
-  <h2 class="sec-title">Вордмарк.<br>Em-dash.<br>Подпись.</h2>
-  <p class="sec-lead">Без иконографики. Тип-знак KIT + em-dash в Dusty Rose + uppercase-подпись «DECOR · САНКТ-ПЕТЕРБУРГ». Три цветовых варианта — больше не делаем.</p>
+  <h2 class="sec-title">Знак · вордмарк ·<br>подпись · тэглайн.</h2>
+  <p class="sec-lead">Четыре элемента, всегда в одном порядке. Знак — стилизованный хвост кита (двойной смысл имени: акроним К·И·Т и слово «кит»). Вордмарк — Space Grotesk. «декор» — единственный script-элемент бренда, разрешён только в локапе. Тэглайн — uppercase tracked.</p>
 
   <div class="logo-grid">
     <div class="logo-card dark">
-      <div class="logo-mark">KIT</div>
-      <div class="logo-line"><span class="em"></span>DECOR · САНКТ-ПЕТЕРБУРГ</div>
-      <div class="role">Primary · Paper-on-Noir</div>
+      <div class="lockup">
+        <span class="mark">
+          <svg viewBox="0 0 80 64" aria-label="КИТ — хвост кита">
+            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
+            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
+            <path d="M 40 30 L 40 42"/>
+            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
+            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          </svg>
+        </span>
+        <span class="wordmark">КИТ</span>
+        <span class="script">декор</span>
+        <span class="tagline">ДЕКОР НА МЕРОПРИЯТИЯ</span>
+      </div>
+      <div class="role">Primary · Full · Paper-on-Noir</div>
     </div>
     <div class="logo-card light">
-      <div class="logo-mark">KIT</div>
-      <div class="logo-line"><span class="em"></span>DECOR · САНКТ-ПЕТЕРБУРГ</div>
-      <div class="role">Inverse · Noir-on-Paper</div>
+      <div class="lockup">
+        <span class="mark">
+          <svg viewBox="0 0 80 64">
+            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
+            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
+            <path d="M 40 30 L 40 42"/>
+            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
+            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          </svg>
+        </span>
+        <span class="wordmark">КИТ</span>
+        <span class="script">декор</span>
+        <span class="tagline">ДЕКОР НА МЕРОПРИЯТИЯ</span>
+      </div>
+      <div class="role">Inverse · Full · Noir-on-Paper</div>
     </div>
   </div>
 
   <div class="logo-grid" style="margin-top:0;border-top:none">
     <div class="logo-card dark">
-      <div class="logo-mark">KIT</div>
-      <div class="role">Mono · favicon · stories</div>
+      <div class="lockup-compact">
+        <span class="mark">
+          <svg viewBox="0 0 80 64">
+            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
+            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
+            <path d="M 40 30 L 40 42"/>
+            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
+            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          </svg>
+        </span>
+        <span class="wordmark">КИТ</span>
+        <span class="script">декор</span>
+      </div>
+      <div class="role">Compact · соцсети · подпись · e-mail</div>
     </div>
     <div class="logo-card dark" style="background:var(--coal)">
-      <div style="display:flex;align-items:flex-start;gap:32px;flex-wrap:wrap;justify-content:center">
-        <div>
-          <div class="logo-mark" style="font-size:48px">KIT</div>
-          <div class="logo-line" style="margin-top:8px;justify-content:center"><span class="em"></span>DECOR</div>
+      <div style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center">
+        <div class="lockup-mark">
+          <svg viewBox="0 0 80 64">
+            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
+            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
+            <path d="M 40 30 L 40 42"/>
+            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
+            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          </svg>
         </div>
-        <div style="text-align:left;max-width:200px;border-left:1px solid var(--paper-08);padding-left:24px">
-          <div style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);margin-bottom:8px">Сигна</div>
-          <div style="font-size:11px;color:var(--paper-50);line-height:1.7">e-mail-подпись<br>визитки<br>watermark</div>
-        </div>
+        <div style="width:1px;height:60px;background:var(--paper-08)"></div>
+        <div class="lockup-word">КИТ</div>
       </div>
-      <div class="role">Compact · подпись + лок</div>
+      <div class="role">Mark · favicon · stories · watermark</div>
     </div>
   </div>
+
+  <p style="margin-top:48px;font-size:12px;color:var(--paper-30);max-width:680px;line-height:1.9">
+    SVG-знак на этой странице — placeholder, перерисованный по референсу Ольги. Когда финальный векторный файл будет в <code style="color:var(--rose);font-family:monospace">02_brand/logo/</code> — заменим автоматически. Все остальные элементы локапа (вордмарк, «декор» в Caveat, тэглайн) уже соответствуют брендбуку.
+  </p>
 </section>
 
 <!-- IG grid -->
@@ -423,7 +482,7 @@
 </section>
 
 <footer>
-  <div>KIT<span class="em"></span>Editorial Noir<span class="em"></span>На согласовании · май 2026</div>
+  <div>КИТ<span class="em"></span>Editorial Noir<span class="em"></span>На согласовании · май 2026</div>
   <div>v0.1 · /02_brand/BRANDBOOK_VISUAL.html</div>
 </footer>
 

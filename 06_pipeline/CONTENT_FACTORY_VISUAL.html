@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>КИТ — Content Factory · Editorial Noir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#080808;--coal:#1A1A1A;--coal-2:#22201E;
+    --paper:#F0EDE8;--rose:#C9A99A;
+    --p50:rgba(240,237,232,.5);--p30:rgba(240,237,232,.3);
+    --p15:rgba(240,237,232,.15);--p08:rgba(240,237,232,.08);
+    --p04:rgba(240,237,232,.04);
+    --ig:#C9A99A;--vk:#7E9DB8;--tg:#8FB0A8;--dzen:#C8A664;--yt:#B57878;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--noir);color:var(--paper);
+    font-weight:300;line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased;}
+  a{color:var(--rose);text-decoration:none}
+  code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--p50)}
+
+  section{padding:120px 8vw;border-bottom:1px solid var(--p08)}
+  section.cover{padding-top:200px;min-height:100vh}
+  .sec-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);
+    display:inline-block;margin-bottom:24px}
+  .sec-divider{width:24px;height:1px;background:var(--rose);margin:0 0 32px}
+  .sec-title{font-weight:300;letter-spacing:-.02em;line-height:1.05;
+    font-size:clamp(36px,5.5vw,68px);max-width:1000px;margin-bottom:32px}
+  .sec-title em{font-style:normal;color:var(--rose)}
+  .sec-lead{font-size:15px;color:var(--p50);max-width:680px;line-height:1.9;margin-bottom:48px}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(8,8,8,.92);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--p08);
+    padding:16px 5vw;display:flex;align-items:center;justify-content:space-between;
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+  nav .brand{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.15em;font-weight:400}
+  nav .brand .nav-mark{width:24px;height:18px;color:var(--paper);display:inline-block;flex-shrink:0}
+  nav .brand .nav-mark svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  nav .brand .nav-word{font-family:'Space Grotesk',sans-serif;font-weight:300;letter-spacing:.18em;font-size:15px}
+  nav .brand .nav-script{font-family:'Caveat',cursive;font-weight:400;font-size:18px;letter-spacing:0;color:var(--rose);margin-left:-4px;text-transform:none;line-height:1}
+  nav .brand .nav-sep{display:inline-block;width:14px;height:1px;background:var(--p15);margin:0 8px}
+  nav .brand .accent{color:var(--rose);font-weight:400}
+
+  /* Cover lockup */
+  .cover-lockup{display:flex;flex-direction:column;align-items:flex-start;gap:24px;margin-bottom:24px}
+  .cover-lockup .mark{width:96px;height:76px;color:var(--paper)}
+  .cover-lockup .mark svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+  .cover-lockup .wordline{display:flex;align-items:baseline;gap:18px}
+  .cover-lockup .wordline .w{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:clamp(64px,9vw,128px);letter-spacing:.1em;line-height:.9;color:var(--paper)}
+  .cover-lockup .wordline .s{font-family:'Caveat',cursive;font-weight:400;font-size:clamp(32px,4.5vw,56px);color:var(--rose);line-height:.8}
+  .cover-lockup .tag{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--p50)}
+  nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+  nav a{color:var(--p50);transition:color .2s}
+  nav a:hover{color:var(--paper)}
+
+  /* Cover */
+  .cover h1{font-size:clamp(64px,12vw,168px);font-weight:300;letter-spacing:-.04em;line-height:.9}
+  .cover h1 .ghost{color:var(--p08);display:block}
+  .cover .lead{font-size:18px;color:var(--p50);max-width:560px;line-height:1.7;margin-top:48px}
+  .cover .stamp{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--rose);
+    padding:10px 18px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-top:56px}
+  .cover .stamp .dot{width:6px;height:6px;background:var(--rose);border-radius:50%}
+  .cover .meta{display:flex;gap:56px;flex-wrap:wrap;margin-top:72px;
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--p50)}
+  .cover .meta strong{display:block;color:var(--paper);margin-top:6px;font-weight:400;font-size:14px;letter-spacing:.05em}
+
+  /* Principle slab */
+  .slab{background:var(--coal);border-left:1px solid var(--rose);
+    padding:48px 56px;margin-top:48px;max-width:900px}
+  .slab .big{font-size:clamp(28px,3vw,40px);font-weight:300;letter-spacing:-.01em;
+    line-height:1.25;color:var(--paper);margin-bottom:24px}
+  .slab .note{font-size:14px;color:var(--p50);line-height:1.9}
+
+  /* Two-col grid */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+  .grid-2 .card h3{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;font-weight:400}
+  .grid-2 .card p{font-size:14px;color:var(--p50);line-height:1.9}
+  .grid-2 .card .num{font-size:48px;font-weight:300;letter-spacing:-.02em;color:var(--paper);margin-bottom:12px;display:block}
+
+  /* Agents grid */
+  .agents{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;
+    background:var(--p08);border:1px solid var(--p08)}
+  .agent{background:var(--noir);padding:32px;display:flex;flex-direction:column;gap:14px;
+    min-height:280px;position:relative;transition:background .2s}
+  .agent:hover{background:var(--coal)}
+  .agent .id{font-size:10px;letter-spacing:.25em;color:var(--rose);text-transform:uppercase;font-weight:400}
+  .agent .name{font-size:22px;font-weight:300;letter-spacing:-.01em;color:var(--paper);line-height:1.2}
+  .agent .role{font-size:13px;color:var(--p50);line-height:1.7;flex-grow:1}
+  .agent .when{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--p30);font-weight:400;border-top:1px solid var(--p08);padding-top:14px}
+  .agent .when strong{color:var(--rose);font-weight:400}
+
+  .agent.tier-strategy{border-top:2px solid var(--rose)}
+  .agent.tier-plan{border-top:2px solid var(--vk)}
+  .agent.tier-prod{border-top:2px solid var(--paper)}
+  .agent.tier-dist{border-top:2px solid var(--tg)}
+  .agent.tier-fb{border-top:2px solid var(--dzen)}
+
+  /* Pipeline flow */
+  .flow{display:flex;flex-direction:column;gap:0;margin-top:32px;max-width:900px}
+  .flow-step{display:grid;grid-template-columns:80px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--p08);align-items:flex-start}
+  .flow-step:last-child{border-bottom:none}
+  .flow-num{font-size:48px;font-weight:300;letter-spacing:-.02em;color:var(--rose);line-height:1}
+  .flow-body h4{font-size:20px;font-weight:300;letter-spacing:-.01em;margin-bottom:8px}
+  .flow-body .who{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+  .flow-body p{font-size:14px;color:var(--p50);line-height:1.85}
+  .flow-arrow{margin-left:24px;color:var(--p15);font-size:24px;line-height:0;padding:8px 0}
+
+  /* Idea expander */
+  .expand{display:grid;grid-template-columns:240px 80px 1fr;gap:24px;margin-top:32px;align-items:center}
+  .expand-input{background:var(--coal);border:1px solid var(--p08);padding:24px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
+  .expand-input .label{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose)}
+  .expand-input .text{font-size:14px;color:var(--paper);line-height:1.6;margin:18px 0}
+  .expand-input .stamp{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--p30);font-weight:400}
+  .expand-arrow{font-size:48px;color:var(--rose);text-align:center;font-weight:300}
+  .expand-out{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .expand-out .chip{background:var(--coal);padding:14px 16px;border-left:2px solid var(--rose)}
+  .expand-out .chip .h{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);margin-bottom:6px;font-weight:400}
+  .expand-out .chip .d{font-size:12px;color:var(--p50);line-height:1.5}
+
+  /* Calendar */
+  .cal-wrap{margin-top:32px;border:1px solid var(--p08);background:var(--noir);overflow-x:auto}
+  .cal{display:grid;grid-template-columns:120px repeat(7,1fr);min-width:880px}
+  .cal .h{padding:14px 12px;border-right:1px solid var(--p08);border-bottom:1px solid var(--p08);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--p50)}
+  .cal .h.day{background:var(--coal-2);text-align:center}
+  .cal .h.day strong{display:block;font-size:18px;font-weight:300;color:var(--paper);letter-spacing:-.02em;margin-top:4px}
+  .cal .row-label{padding:18px 14px;border-right:1px solid var(--p08);border-bottom:1px solid var(--p08);background:var(--coal);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper)}
+  .cal .row-label small{display:block;color:var(--p30);font-size:9px;letter-spacing:.1em;margin-top:4px;text-transform:none}
+  .cal .cell{padding:8px;border-right:1px solid var(--p08);border-bottom:1px solid var(--p08);display:flex;flex-direction:column;gap:6px;min-height:96px}
+  .pill{font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 8px;line-height:1.2}
+  .pill.case{background:rgba(201,169,154,.12);color:var(--paper);border-left:2px solid var(--rose)}
+  .pill.reels{background:rgba(201,169,154,.25);color:var(--paper);border-left:2px solid var(--rose)}
+  .pill.story{background:transparent;color:var(--p50);border-left:2px solid var(--p15)}
+  .pill.article{background:var(--paper);color:var(--noir);border-left:none;font-weight:500}
+  .pill.bts{background:var(--coal-2);color:var(--p50);border-left:2px solid var(--tg)}
+  .pill.quote{background:var(--coal-2);color:var(--paper);border-left:2px solid var(--paper)}
+  .pill .t{display:block;color:var(--p30);font-size:8px;letter-spacing:.15em;margin-bottom:2px;font-weight:400}
+
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:24px;font-size:11px;color:var(--p50)}
+  .legend .l{display:flex;align-items:center;gap:8px}
+  .legend .l span:first-child{width:12px;height:12px;display:inline-block;border-left:2px solid var(--rose)}
+
+  /* Daily schedule */
+  .day-track{margin-top:32px;background:var(--coal);border-left:1px solid var(--rose);padding:32px}
+  .day-row{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--p08);align-items:center}
+  .day-row:last-child{border-bottom:none}
+  .day-time{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--rose);letter-spacing:.05em}
+  .day-act{font-size:14px;color:var(--paper)}
+  .day-act .platform{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--p30);margin-left:12px;font-weight:400}
+
+  /* Trends */
+  .trend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;background:var(--p08)}
+  .trend{background:var(--noir);padding:28px;min-height:200px;display:flex;flex-direction:column;gap:14px}
+  .trend .src{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:400}
+  .trend .what{font-size:16px;font-weight:300;color:var(--paper);line-height:1.4;flex-grow:1}
+  .trend .how{font-size:12px;color:var(--p50);line-height:1.7}
+
+  /* Sprint */
+  .sprint{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px}
+  .sprint-day{background:var(--coal);padding:40px}
+  .sprint-day h3{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);font-weight:400;margin-bottom:8px}
+  .sprint-day .h2{font-size:36px;font-weight:300;letter-spacing:-.02em;margin-bottom:24px}
+  .sprint-task{display:grid;grid-template-columns:80px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--p08);font-size:13px}
+  .sprint-task:last-child{border-bottom:none}
+  .sprint-task .t{font-family:'JetBrains Mono',monospace;color:var(--rose);font-size:11px;letter-spacing:.05em}
+  .sprint-task .w{color:var(--p50);line-height:1.7}
+  .sprint-task .w strong{color:var(--paper);font-weight:400;display:block;margin-bottom:2px}
+
+  /* Stack */
+  .stack{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:32px;background:var(--p08)}
+  .stack-item{background:var(--noir);padding:32px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+  .stack-item .num{font-size:42px;font-weight:300;letter-spacing:-.02em;color:var(--rose);line-height:1}
+  .stack-item .nm{font-size:18px;color:var(--paper);font-weight:300;letter-spacing:-.01em;margin-top:18px}
+  .stack-item .role{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--p30);margin-top:8px}
+  .stack-item .desc{font-size:12px;color:var(--p50);line-height:1.7;margin-top:14px}
+
+  /* Cost */
+  .cost-row{display:grid;grid-template-columns:1fr auto;padding:14px 0;border-bottom:1px solid var(--p08);font-size:13px}
+  .cost-row:last-child{border-bottom:none;padding-top:24px}
+  .cost-row.total{border-top:1px solid var(--rose);margin-top:14px;font-size:18px;color:var(--paper)}
+  .cost-row .item{color:var(--p50)}
+  .cost-row .val{color:var(--paper);font-family:'JetBrains Mono',monospace;letter-spacing:.05em}
+
+  /* Bottom CTA */
+  footer{padding:80px 8vw;background:var(--coal);text-align:center}
+  footer h2{font-size:clamp(36px,5vw,64px);font-weight:300;letter-spacing:-.02em;line-height:1.05;margin-bottom:32px;max-width:800px;margin-left:auto;margin-right:auto}
+  footer p{font-size:14px;color:var(--p50);line-height:1.9;max-width:560px;margin:0 auto 32px}
+  .end-meta{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--p30)}
+
+  @media(max-width:980px){
+    .agents,.trend-grid,.stack{grid-template-columns:repeat(2,1fr)}
+    .grid-2,.sprint{grid-template-columns:1fr}
+    .expand{grid-template-columns:1fr;text-align:center}
+    .expand-arrow{transform:rotate(90deg);font-size:32px;margin:8px 0}
+    nav ul{display:none}
+    section{padding:80px 6vw}
+  }
+  @media(max-width:640px){
+    .agents,.trend-grid,.stack{grid-template-columns:1fr}
+    .expand-out{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <span class="nav-mark"><svg viewBox="0 0 80 64"><path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/><path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/><path d="M 40 30 L 40 42"/><path d="M 10 52 Q 25 45, 40 52 T 70 50"/></svg></span>
+    <span class="nav-word">КИТ</span><span class="nav-script">декор</span>
+    <span class="nav-sep"></span>
+    <span class="accent">Content Factory</span>
+  </div>
+  <ul>
+    <li><a href="#principle">Принцип</a></li>
+    <li><a href="#agents">Агенты</a></li>
+    <li><a href="#flow">Пайплайн</a></li>
+    <li><a href="#idea">Идея → 7</a></li>
+    <li><a href="#trends">Тренды</a></li>
+    <li><a href="#cal">Календарь</a></li>
+    <li><a href="#day">День</a></li>
+    <li><a href="#sprint">Спринт</a></li>
+    <li><a href="#stack">Стек</a></li>
+  </ul>
+</nav>
+
+<!-- ─────────── COVER ─────────── -->
+<section class="cover">
+  <span class="sec-label">Концепция фабрики · спринт май 2026</span>
+
+  <div class="cover-lockup">
+    <span class="mark"><svg viewBox="0 0 80 64"><path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/><path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/><path d="M 40 30 L 40 42"/><path d="M 10 52 Q 25 45, 40 52 T 70 50"/><path d="M 18 60 Q 30 55, 42 60 T 64 58"/></svg></span>
+    <div class="wordline"><span class="w">КИТ</span><span class="s">декор</span></div>
+    <span class="tag">Декор на мероприятия · Санкт-Петербург</span>
+  </div>
+
+  <h1 style="font-size:clamp(48px,8vw,108px);margin-top:24px">
+    <span class="ghost">CONTENT</span>
+    FACTORY
+  </h1>
+  <p class="lead">
+    Оля идёт спать с одной мыслью: «завтра утром 15 минут в NocoDB, и фабрика снова работает за нас». Машина пишет, планирует, публикует, считает и слушает рынок. Оля задаёт направление и фильтрует.
+  </p>
+  <div class="stamp"><span class="dot"></span>Дедлайн запуска · 2 дня</div>
+  <div class="meta">
+    <div>Платформы<strong>Instagram · VK · Telegram · Дзен</strong></div>
+    <div>Агентов<strong>12 · в трёх слоях</strong></div>
+    <div>Стек<strong>Claude · Kie.ai · NocoDB · n8n</strong></div>
+    <div>Цикл от идеи<strong>≤ 48 часов</strong></div>
+  </div>
+</section>
+
+<!-- ─────────── PRINCIPLE ─────────── -->
+<section id="principle">
+  <span class="sec-label">01 — Главный принцип</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Оля <em>не пишет</em>.<br>Оля решает.</h2>
+  <p class="sec-lead">Если Оля начала писать тексты руками — фабрика сломалась. Её роль: голос (через voice samples), идеи (через Idea Inbox) и финальное «да/нет» (через Approval view). Всё остальное делают агенты и n8n. Утром 15 минут — план дня закрыт.</p>
+
+  <div class="slab">
+    <div class="big">«Я закидываю идею голосом, к обеду у меня 7 черновиков на все площадки — я выбираю.»</div>
+    <div class="note">Так выглядит рабочий день Оли в новой системе. Не «садится писать пост», а «фильтрует то, что машина сделала за неё».</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Что делает Оля</h3>
+      <p>Закидывает идеи (голос/текст/фото). Утверждает черновики в Inbox. Отвечает на «горячие» лиды. Раз в неделю проверяет план. Раз в квартал — стратегическое ревю.</p>
+    </div>
+    <div class="card">
+      <h3>Что делает машина</h3>
+      <p>Разворачивает идеи в 7 типов контента. Следит за трендами. Генерирует тексты в её голосе. Создаёт визуал (Kie.ai + Noir-шаблоны). Публикует в нужный час. Считает метрики и отвечает в DM.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── AGENTS ─────────── -->
+<section id="agents">
+  <span class="sec-label">02 — Карта агентов</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">12 агентов.<br><em>5 слоёв.</em></h2>
+  <p class="sec-lead">Каждый агент — отдельный n8n workflow или Claude-промпт. Цветная полоска сверху — слой ответственности: стратегия / планирование / производство / дистрибуция / обратная связь.</p>
+
+  <div class="agents">
+    <!-- Tier: strategy -->
+    <div class="agent tier-strategy">
+      <span class="id">A01 · Стратегия</span>
+      <div class="name">Brand Strategist</div>
+      <div class="role">Раз в квартал. Читает все 12 стратегических доков + метрики квартала + Trend Watcher digest. Возвращает quarterly_brief.md: фокусы, риски, корректировки messaging.</div>
+      <div class="when"><strong>Квартально</strong> · Claude API с кэшем 12 доков · альтернатива — CrewAI marketing-crew</div>
+    </div>
+
+    <div class="agent tier-strategy">
+      <span class="id">A02 · Стратегия</span>
+      <div class="name">Trend Watcher</div>
+      <div class="role">Ежедневно. Парсит IG/TikTok/Pinterest по тегам декора и свадеб, считает audio-тренды Reels, формирует weekly digest. Питает Idea Expander и Editor свежими паттернами рынка.</div>
+      <div class="when"><strong>Ежедневно 07:00</strong> · n8n + Apify / Tavily / Pinterest API</div>
+    </div>
+
+    <!-- Tier: planning -->
+    <div class="agent tier-plan">
+      <span class="id">A03 · Планирование</span>
+      <div class="name">Editor-in-Chief</div>
+      <div class="role">Каждое воскресенье 20:00. Балансирует пиллары (кейс / процесс / обучение / соцдоказ / продажи), вставляет тренды недели, ставит карточки в content_calendar со статусом «brief». Шлёт Оле в TG ссылку на план.</div>
+      <div class="when"><strong>Вс 20:00</strong> · n8n cron + Claude</div>
+    </div>
+
+    <div class="agent tier-plan">
+      <span class="id">A04 · Планирование</span>
+      <div class="name">Idea Expander</div>
+      <div class="role">Триггер: Оля закинула идею в Idea Inbox (текст, голос или фото). Агент развёртывает одну идею в 5–7 черновиков под все форматы: IG-пост, Reels, Stories-серия, TG, VK, Дзен, карусель.</div>
+      <div class="when"><strong>По триггеру</strong> · мгновенно (≤2 мин)</div>
+    </div>
+
+    <!-- Tier: production -->
+    <div class="agent tier-prod">
+      <span class="id">A05 · Производство</span>
+      <div class="name">Copywriter</div>
+      <div class="role">Триггер: карточка со статусом «brief». Контекст в системном промпте: 04_BRAND_BOOK + 05_TOV + voice_samples + антимессенджи. Возвращает 3 варианта текста + 2 CTA + хэштеги.</div>
+      <div class="when"><strong>По карточке</strong> · Claude Sonnet с prompt caching</div>
+    </div>
+
+    <div class="agent tier-prod">
+      <span class="id">A06 · Производство</span>
+      <div class="name">Visual Director</div>
+      <div class="role">Для Reels — пишет brief в Kie.ai (длительность, муз. вайб, монтажный стиль). Для Noir-карточек (цитата/цифра/типо-пост) — рендерит из HTML-шаблонов через Puppeteer в PNG.</div>
+      <div class="when"><strong>По карточке</strong> · Claude + Kie.ai + Puppeteer node</div>
+    </div>
+
+    <div class="agent tier-prod">
+      <span class="id">A07 · Производство</span>
+      <div class="name">Brand Guard</div>
+      <div class="role">Проверка драфта: запрещённые слова из TOV («уникальный», «команда профессионалов»), упоминания старого бренда (Kit Wedding, WOW, Ivory/Sage), длина под платформу, наличие живой детали (имя/время/место).</div>
+      <div class="when"><strong>Перед approval</strong> · Claude Haiku · быстрая проверка</div>
+    </div>
+
+    <!-- Tier: distribution -->
+    <div class="agent tier-dist">
+      <span class="id">A08 · Дистрибуция</span>
+      <div class="name">Publisher</div>
+      <div class="role">Cron каждый час. Берёт approved-карточки с publish_date≤now, постит через нативные API: IG Graph, VK group, TG Bot, Дзен. Меняет статус → published, сохраняет external_id.</div>
+      <div class="when"><strong>Каждый час</strong> · n8n cron · IG/VK/TG/Дзен API</div>
+    </div>
+
+    <div class="agent tier-dist">
+      <span class="id">A09 · Дистрибуция</span>
+      <div class="name">Repurpose</div>
+      <div class="role">После публикации Reels — автоматически собирает TG-пост со ссылкой, VK-пост с видео, черновик Дзен-длиннюка. Один Reels превращается в 4 единицы контента.</div>
+      <div class="when"><strong>После Publisher</strong> · n8n chain</div>
+    </div>
+
+    <!-- Tier: feedback -->
+    <div class="agent tier-fb">
+      <span class="id">A10 · Обратная связь</span>
+      <div class="name">Analytics</div>
+      <div class="role">Каждое утро 09:00. Тянет статистику постов (охват, сохранения, DM), пишет в таблицу metrics. Воскресенье — weekly recap Оле в TG: что зашло, что нет, какой пиллар недоосвоен.</div>
+      <div class="when"><strong>Ежедневно 09:00</strong> · n8n + IG/VK/TG insights API</div>
+    </div>
+
+    <div class="agent tier-fb">
+      <span class="id">A11 · Обратная связь</span>
+      <div class="name">Inbox Bot</div>
+      <div class="role">Триггер: DM или комментарий с маркером «сколько», «есть даты», «расскажите про услуги». Шлёт первый шаблонный ответ, создаёт лид в leads, пушит Олю в TG с кнопками «звонок / отложить / закрыть».</div>
+      <div class="when"><strong>Realtime webhook</strong> · IG/TG/VK</div>
+    </div>
+
+    <div class="agent tier-fb">
+      <span class="id">A12 · Обратная связь</span>
+      <div class="name">Case Reaper</div>
+      <div class="role">Триггер: Оля поставила event.status=done и залила фото. Reaper выбирает лучшие 5–7 кадров по правилам брендбука и автоматически создаёт 5 готовых карточек: IG-кейс, Reels, TG-пост, VK, Дзен.</div>
+      <div class="when"><strong>После события</strong> · n8n + Claude vision</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── FLOW ─────────── -->
+<section id="flow">
+  <span class="sec-label">03 — Пайплайн от идеи к лиду</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Семь шагов.<br><em>48 часов</em> цикл.</h2>
+  <p class="sec-lead">От момента, когда Оля закидывает идею голосом в TG-бот, до публикации поста проходит максимум 48 часов. Чаще — 4–6 часов, потому что машина ждёт только Олю.</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-body">
+        <div class="who">Idea Inbox · Оля · Trend Watcher · Case Reaper</div>
+        <h4>Идея попадает в систему</h4>
+        <p>Три источника: голосовое от Оли через TG-бот → транскрибируется → запись в <code>ideas</code>. Trend Watcher предлагает свежий тренд недели. Case Reaper создаёт идеи автоматически после событий. Все — в одну таблицу.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-body">
+        <div class="who">Idea Expander · агент A04</div>
+        <h4>Развёртка в 5–7 черновиков</h4>
+        <p>Идея «клиенты подарили нам торт» → 5 карточек: IG-пост (фото+история), Reels (15 сек реакция), Stories (3 кадра), TG (короткий), Дзен (если есть смысл). Все в content_calendar со статусом <code>brief</code>.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-body">
+        <div class="who">Copywriter · Visual Director · Brand Guard</div>
+        <h4>Параллельное производство</h4>
+        <p>Каждая карточка идёт в трёх потоках: текст (3 версии), визуал (Kie.ai или Noir-шаблон), проверка Brand Guard. Статус → <code>draft_ready</code>. Оля получает уведомление в TG: «9 черновиков ждут».</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">04</div>
+      <div class="flow-body">
+        <div class="who">Оля · NocoDB Inbox view</div>
+        <h4>Одобрение или правка</h4>
+        <p>Inbox view: только карточки <code>draft_ready</code>. Три кнопки на карточке: ✓ Approve / ↻ Revise (комментарий → Copywriter перегенерирует) / ✕ Reject. 80% случаев — Approve. 5 секунд на карточку.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">05</div>
+      <div class="flow-body">
+        <div class="who">Publisher · n8n cron</div>
+        <h4>Автопостинг в нужный час</h4>
+        <p>Карточка <code>approved</code> + publish_date достигнут → пост идёт в свою платформу через нативный API. Запись о external_id фиксируется. Ошибка → пуш Андрею в TG.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">06</div>
+      <div class="flow-body">
+        <div class="who">Repurpose · Analytics</div>
+        <h4>Размножение и замер</h4>
+        <p>После публикации Reels — Repurpose создаёт TG/VK/Дзен версии. Через 24 часа Analytics тянет первичные метрики (охват/сохранения), привязывает к карточке.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">07</div>
+      <div class="flow-body">
+        <div class="who">Inbox Bot · CRM</div>
+        <h4>Лид падает в воронку</h4>
+        <p>Пост вызвал DM → Inbox Bot отвечает шаблоном, создаёт <code>leads.row</code>, пушит Олю. Оля видит лид с контекстом: какой пост его привёл, что человек спросил. Конверсия становится attributable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── IDEA EXPANDER DETAIL ─────────── -->
+<section id="idea">
+  <span class="sec-label">04 — Idea Expander · детально</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Одна идея Оли →<br><em>7 форматов</em> контента.</h2>
+  <p class="sec-lead">Это сердце системы. Оля больше не думает «надо что-то выложить в IG, отдельно в TG». Она думает «у нас была такая история». Машина сама раскладывает на форматы.</p>
+
+  <div class="expand">
+    <div class="expand-input">
+      <div>
+        <div class="label">Idea Inbox · 14:32</div>
+        <div class="text">«Сегодня клиенты подарили нам торт после монтажа. Андрей чуть не плакал.»</div>
+      </div>
+      <div class="stamp">Голосовое · TG · 18 сек</div>
+    </div>
+    <div class="expand-arrow">→</div>
+    <div class="expand-out">
+      <div class="chip"><div class="h">IG Пост 4:5</div><div class="d">Карусель «Когда клиенты возвращаются с тортом» — фото торта, история, упоминание пары.</div></div>
+      <div class="chip"><div class="h">IG Reels 9:16</div><div class="d">15 сек: момент вручения торта, реакция Андрея, рукописная подпись «спасибо».</div></div>
+      <div class="chip"><div class="h">IG Stories ×3</div><div class="d">Кадр торта → подпись Оли → кадр Андрея с CTA «угадайте, кто заплакал».</div></div>
+      <div class="chip"><div class="h">TG Пост 80 слов</div><div class="d">Короткое личное: «короче, ребята, вот за это мы любим эту работу».</div></div>
+      <div class="chip"><div class="h">VK Пост</div><div class="d">Та же история с большим контекстом — подходит для длинной ленты.</div></div>
+      <div class="chip"><div class="h">Дзен заметка</div><div class="d">Заметка для серии «истории КИТ» — если соберём 5 таких, выйдет длинная статья.</div></div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:64px">
+    <div class="card">
+      <h3>Что Оля делает</h3>
+      <p>Открывает TG-бот @kit_ideas. Жмёт микрофон. Говорит 20 секунд. Может приложить фото. Бот отвечает: «принято, через 3 минуты придут 6 черновиков на ревью».</p>
+    </div>
+    <div class="card">
+      <h3>Что машина делает</h3>
+      <p>Whisper транскрибирует голос. Idea Expander анализирует: эмоция, тип события, есть ли визуал, какой пиллар. Решает, какие из 7 форматов уместны (не всегда все). Создаёт N карточек, дальше — обычный пайплайн.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── TRENDWATCHING ─────────── -->
+<section id="trends">
+  <span class="sec-label">05 — Трендвотчинг</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Мы <em>не отстаём</em><br>от рынка.</h2>
+  <p class="sec-lead">Trend Watcher работает каждое утро в 07:00. Тянет данные из четырёх источников, сравнивает с прошлой неделей, выводит digest. Editor использует его при планировании, Idea Expander — чтобы «приземлить» идею Оли в актуальный формат.</p>
+
+  <div class="trend-grid">
+    <div class="trend">
+      <div class="src">Источник 01 · Instagram</div>
+      <div class="what">Растущие хэштеги по СПб-свадьбам, аудио-треки Reels с ускоренным охватом, форматы карусели</div>
+      <div class="how">Apify scraper по списку конкурентов и тегам #свадьбаспб #декорспб</div>
+    </div>
+    <div class="trend">
+      <div class="src">Источник 02 · Pinterest</div>
+      <div class="what">Палитры сезона, флористические композиции, новые ритуальные элементы (smoke-box, парковка каблуков)</div>
+      <div class="how">Pinterest Trends API + ручные board-listy от Оли</div>
+    </div>
+    <div class="trend">
+      <div class="src">Источник 03 · TikTok</div>
+      <div class="what">Вирусные ракурсы съёмки декора, тайм-лапс-форматы, повторяющиеся «hook»-фразы для подписей</div>
+      <div class="how">Apify TikTok-scraper + теги #weddingdecor #floraldesign</div>
+    </div>
+    <div class="trend">
+      <div class="src">Источник 04 · Свадебные медиа</div>
+      <div class="what">Gorko, The Knot RU, свадебные блоги — крупные публикации, тренды сезона, новые имена декораторов</div>
+      <div class="how">RSS + Tavily Search еженедельно</div>
+    </div>
+    <div class="trend">
+      <div class="src">Источник 05 · Конкуренты</div>
+      <div class="what">Что выкладывают @feerichi, @thefair.ru, Oh My Flowers, ТоржествоМания — частота, форматы, что зашло</div>
+      <div class="how">IG scraper по списку, ручной alert при необычной активности</div>
+    </div>
+    <div class="trend">
+      <div class="src">Источник 06 · Своё прошлое</div>
+      <div class="what">Метрики наших же постов: какие форматы у нас работают, какие пиллары перегружены, когда лучшее время выхода</div>
+      <div class="how">Внутренняя metrics-таблица NocoDB</div>
+    </div>
+  </div>
+
+  <div class="slab" style="margin-top:48px">
+    <div class="big">Trend Watcher не диктует — он подсвечивает.</div>
+    <div class="note">Финальное решение «делаем мы это или нет» всегда за Олей. Цель — чтобы она не пропустила то, что становится релевантным её клиентам. И чтобы агенты предлагали идеи не из воздуха, а с привязкой к рынку.</div>
+  </div>
+</section>
+
+<!-- ─────────── CALENDAR ─────────── -->
+<section id="cal">
+  <span class="sec-label">06 — Единый календарь публикаций</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Одна <em>сетка</em>.<br>Четыре платформы.</h2>
+  <p class="sec-lead">В NocoDB Calendar view + кастомный Noir-дашборд. Видно сразу: что выходит в IG, что в VK, что в TG, что в Дзен. Цвет полосы = тип контента, иконка слева = платформа. Один взгляд — Оля понимает всю неделю.</p>
+
+  <div class="cal-wrap">
+    <div class="cal">
+      <div class="h"></div>
+      <div class="h day">Пн<strong>12</strong></div>
+      <div class="h day">Вт<strong>13</strong></div>
+      <div class="h day">Ср<strong>14</strong></div>
+      <div class="h day">Чт<strong>15</strong></div>
+      <div class="h day">Пт<strong>16</strong></div>
+      <div class="h day">Сб<strong>17</strong></div>
+      <div class="h day">Вс<strong>18</strong></div>
+
+      <div class="row-label">Instagram<small>5–7 + 3 Reels</small></div>
+      <div class="cell"><span class="pill case"><span class="t">09:00</span>Кейс · Meze</span><span class="pill story"><span class="t">13:00</span>Stories BTS</span></div>
+      <div class="cell"><span class="pill reels"><span class="t">18:00</span>Reels · тайм-лапс</span><span class="pill story"><span class="t">13:00</span>Stories</span></div>
+      <div class="cell"><span class="pill quote"><span class="t">09:00</span>Цитата клиента</span><span class="pill story"><span class="t">13:00</span>Stories</span></div>
+      <div class="cell"><span class="pill case"><span class="t">09:00</span>Кейс · витрина</span><span class="pill reels"><span class="t">18:00</span>Reels · 5 трендов</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">09:00</span>BTS · 6 утра</span><span class="pill story"><span class="t">13:00</span>Stories</span></div>
+      <div class="cell"><span class="pill case"><span class="t">11:00</span>Кейс · корпоратив</span></div>
+      <div class="cell"><span class="pill reels"><span class="t">12:00</span>Reels · «угадай цену»</span></div>
+
+      <div class="row-label">VK<small>7–10 + 2–3 Reels</small></div>
+      <div class="cell"><span class="pill case"><span class="t">10:00</span>Кейс · Meze</span></div>
+      <div class="cell"><span class="pill reels"><span class="t">18:30</span>Видео</span><span class="pill quote"><span class="t">10:00</span>Цитата</span></div>
+      <div class="cell"><span class="pill quote"><span class="t">10:00</span>Цитата клиента</span></div>
+      <div class="cell"><span class="pill case"><span class="t">10:00</span>Кейс · витрина</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">10:00</span>BTS</span><span class="pill reels"><span class="t">18:30</span>Видео</span></div>
+      <div class="cell"><span class="pill case"><span class="t">11:30</span>Кейс</span></div>
+      <div class="cell"><span class="pill quote"><span class="t">12:00</span>Подборка недели</span></div>
+
+      <div class="row-label">Telegram<small>7–14 в неделю</small></div>
+      <div class="cell"><span class="pill bts"><span class="t">08:00</span>Деталь декора</span><span class="pill case"><span class="t">20:00</span>Кейс ссылка</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">08:00</span>Утренний</span><span class="pill reels"><span class="t">20:00</span>Reels-ссылка</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">08:00</span>Деталь</span><span class="pill quote"><span class="t">20:00</span>Цитата</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">08:00</span>Утренний</span><span class="pill case"><span class="t">20:00</span>Кейс</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">08:00</span>Деталь</span><span class="pill reels"><span class="t">20:00</span>Reels</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">10:00</span>Сб-выпуск</span></div>
+      <div class="cell"><span class="pill bts"><span class="t">12:00</span>Анонс недели</span></div>
+
+      <div class="row-label">Дзен<small>2–3 статьи/нед</small></div>
+      <div class="cell"></div>
+      <div class="cell"><span class="pill article"><span class="t">14:00</span>«Сколько стоит декор 2026»</span></div>
+      <div class="cell"></div>
+      <div class="cell"><span class="pill article"><span class="t">14:00</span>«5 трендов сезона»</span></div>
+      <div class="cell"></div>
+      <div class="cell"><span class="pill article"><span class="t">12:00</span>«Как выбрать декоратора»</span></div>
+      <div class="cell"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="l"><span style="border-left-color:var(--rose);background:rgba(201,169,154,.12)"></span>Кейс</div>
+    <div class="l"><span style="border-left-color:var(--rose);background:rgba(201,169,154,.25)"></span>Reels / Видео</div>
+    <div class="l"><span style="border-left-color:var(--p15);background:transparent"></span>Stories</div>
+    <div class="l"><span style="background:var(--paper)"></span>Дзен-статья</div>
+    <div class="l"><span style="border-left-color:var(--tg);background:var(--coal-2)"></span>BTS / Утренник</div>
+    <div class="l"><span style="border-left-color:var(--paper);background:var(--coal-2)"></span>Цитата</div>
+  </div>
+</section>
+
+<!-- ─────────── DAILY SCHEDULE ─────────── -->
+<section id="day">
+  <span class="sec-label">07 — Расписание одного дня</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Часы публикации<br>не случайны.</h2>
+  <p class="sec-lead">Каждый час — отдельная аудитория. Утро в TG — те, кто пьёт кофе и читает каналы. День в IG — мобильный скролл в перерывах. Вечер — приём контента после работы. Расписание оптимизировано под СПб-аудиторию 25–35.</p>
+
+  <div class="day-track">
+    <div class="day-row"><div class="day-time">07:00</div><div class="day-act">Trend Watcher сделал утренний digest <span class="platform">Внутренний</span></div></div>
+    <div class="day-row"><div class="day-time">08:00</div><div class="day-act">Утренний пост · деталь декора <span class="platform">Telegram</span></div></div>
+    <div class="day-row"><div class="day-time">09:00</div><div class="day-act">Analytics: вчерашние метрики · Оля смотрит в TG <span class="platform">Внутренний</span></div></div>
+    <div class="day-row"><div class="day-time">09:00</div><div class="day-act">Главный пост дня · кейс или цитата <span class="platform">Instagram</span></div></div>
+    <div class="day-row"><div class="day-time">09:15</div><div class="day-act">Оля 15 минут в Inbox · approve / revise <span class="platform">NocoDB</span></div></div>
+    <div class="day-row"><div class="day-time">10:00</div><div class="day-act">Адаптация утреннего IG-поста <span class="platform">VK</span></div></div>
+    <div class="day-row"><div class="day-time">13:00</div><div class="day-act">Stories · 3 кадра BTS с площадки <span class="platform">Instagram</span></div></div>
+    <div class="day-row"><div class="day-time">14:00</div><div class="day-act">Дзен-статья (по вт/чт/сб) <span class="platform">Дзен</span></div></div>
+    <div class="day-row"><div class="day-time">18:00</div><div class="day-act">Reels · тайм-лапс / тренд-разбор <span class="platform">Instagram</span></div></div>
+    <div class="day-row"><div class="day-time">18:30</div><div class="day-act">Адаптация Reels (Repurpose агент) <span class="platform">VK</span></div></div>
+    <div class="day-row"><div class="day-time">20:00</div><div class="day-act">Вечерний канальный пост · история дня <span class="platform">Telegram</span></div></div>
+    <div class="day-row"><div class="day-time">23:00</div><div class="day-act">Inbox Bot закрывает день: dm-лог в leads <span class="platform">Внутренний</span></div></div>
+  </div>
+</section>
+
+<!-- ─────────── 2-DAY SPRINT ─────────── -->
+<section id="sprint">
+  <span class="sec-label">08 — Спринт запуска · 2 дня</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">48 часов.<br><em>Фабрика работает.</em></h2>
+  <p class="sec-lead">Не запускаем всё сразу. День 1 — фундамент + первые 4 агента ручным режимом. День 2 — автоматизация и трендвотчинг. К вечеру дня 2 — первая авто-публикация в эфир.</p>
+
+  <div class="sprint">
+    <div class="sprint-day">
+      <h3>День 01 · фундамент</h3>
+      <div class="h2">10 часов работы</div>
+      <div class="sprint-task"><div class="t">09:00–11:00</div><div class="w"><strong>VPS + NocoDB + n8n</strong>docker-compose, https-домен, базовая безопасность</div></div>
+      <div class="sprint-task"><div class="t">11:00–13:00</div><div class="w"><strong>Схема NocoDB</strong>таблицы ideas, content_calendar, events, leads, metrics, voice_samples, trends</div></div>
+      <div class="sprint-task"><div class="t">13:00–15:00</div><div class="w"><strong>API-ключи</strong>Claude · Kie.ai · IG Graph · VK · TG Bot · Дзен</div></div>
+      <div class="sprint-task"><div class="t">15:00–17:00</div><div class="w"><strong>Agent A05 Copywriter</strong>n8n workflow + системный промпт с кэшем + 4 voice_samples</div></div>
+      <div class="sprint-task"><div class="t">17:00–19:00</div><div class="w"><strong>Agent A04 Idea Expander</strong>TG-бот @kit_ideas + Whisper + развёртка в 5–7 черновиков</div></div>
+      <div class="sprint-task"><div class="t">19:00–20:00</div><div class="w"><strong>Inbox view для Оли</strong>NocoDB view + кнопки Approve/Revise/Reject через webhook</div></div>
+      <div class="sprint-task"><div class="t">20:00–21:00</div><div class="w"><strong>Тест</strong>Оля закидывает первую идею голосом, проходим весь цикл вручную до approved</div></div>
+    </div>
+
+    <div class="sprint-day">
+      <h3>День 02 · автоматизация</h3>
+      <div class="h2">10 часов работы</div>
+      <div class="sprint-task"><div class="t">09:00–11:00</div><div class="w"><strong>Agent A07 Brand Guard</strong>Claude Haiku · проверка драфта на запреты, длину, упоминания старого бренда</div></div>
+      <div class="sprint-task"><div class="t">11:00–13:00</div><div class="w"><strong>Agent A06 Visual Director</strong>Kie.ai-интеграция + Puppeteer для Noir-карточек из HTML-шаблонов</div></div>
+      <div class="sprint-task"><div class="t">13:00–14:00</div><div class="w"><strong>Agent A02 Trend Watcher</strong>Apify scraper IG/TikTok + Pinterest API + утренний digest</div></div>
+      <div class="sprint-task"><div class="t">14:00–16:00</div><div class="w"><strong>Agent A08 Publisher</strong>Cron каждый час → IG/VK/TG/Дзен через нативные API</div></div>
+      <div class="sprint-task"><div class="t">16:00–17:00</div><div class="w"><strong>Agent A09 Repurpose</strong>Reels → TG + VK + Дзен-черновик автоматически</div></div>
+      <div class="sprint-task"><div class="t">17:00–18:00</div><div class="w"><strong>Agent A10 Analytics + A11 Inbox Bot</strong>метрики + DM-обработка</div></div>
+      <div class="sprint-task"><div class="t">18:00–19:00</div><div class="w"><strong>Agent A03 Editor + A12 Case Reaper</strong>еженедельное планирование + 5-в-1 после события</div></div>
+      <div class="sprint-task"><div class="t">19:00–20:00</div><div class="w"><strong>Первая авто-публикация</strong>пост «Мы обновились — встречайте КИТ» в IG/VK/TG одновременно</div></div>
+      <div class="sprint-task"><div class="t">20:00–21:00</div><div class="w"><strong>Демо Оле</strong>проходим день: идея → Inbox → approve → авто-публикация</div></div>
+    </div>
+  </div>
+
+  <div class="slab" style="margin-top:48px">
+    <div class="big">A01 Brand Strategist подключаем позже.</div>
+    <div class="note">Стратег — это не операционный агент, он работает раз в квартал. В 2-дневном спринте делаем простой workflow в n8n: ежеквартальный триггер → Claude API с кэшем всех 12 страт. доков + последний metrics-quarter → выдаёт quarterly_brief.md. Если потребуется глубина — заменим на CrewAI marketing-crew (готовый opensource-фреймворк) или Letta для агента со stateful-памятью. Но на старте лишнее.</div>
+  </div>
+</section>
+
+<!-- ─────────── STACK ─────────── -->
+<section id="stack">
+  <span class="sec-label">09 — Технологический стек</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Четыре <em>инструмента</em>.<br>Всё.</h2>
+  <p class="sec-lead">Никаких лишних SaaS. Каждый компонент несёт свою функцию, нет дублей.</p>
+
+  <div class="stack">
+    <div class="stack-item">
+      <div>
+        <div class="num">01</div>
+        <div class="nm">Claude API</div>
+        <div class="role">Мозг агентов</div>
+      </div>
+      <div class="desc">Sonnet для текстов и анализа, Haiku для быстрых проверок. Prompt caching на системных промптах с брендбуком и voice_samples — экономия 70% токенов.</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="num">02</div>
+        <div class="nm">Kie.ai</div>
+        <div class="role">Видео и Reels</div>
+      </div>
+      <div class="desc">Генерация Reels-роликов из текстового brief. Альтернатива — Pika / Runway, если Kie.ai не справится с эстетикой Noir.</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="num">03</div>
+        <div class="nm">NocoDB</div>
+        <div class="role">База + интерфейс Оли</div>
+      </div>
+      <div class="desc">Self-hosted на VPS. Таблицы, формы, calendar view, кнопки с webhook. Оля видит интерфейс уровня Airtable, бесплатно.</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="num">04</div>
+        <div class="nm">n8n</div>
+        <div class="role">Оркестратор</div>
+      </div>
+      <div class="desc">Self-hosted рядом с NocoDB. Все агенты — это n8n workflow с триггерами: cron, webhook, NocoDB change. Каждый агент = один workflow.</div>
+    </div>
+  </div>
+
+  <h2 class="sec-title" style="margin-top:96px;font-size:clamp(28px,3.5vw,44px)">Месячная стоимость</h2>
+  <div style="max-width:560px;margin-top:32px">
+    <div class="cost-row"><div class="item">VPS Hetzner CX22 (NocoDB + n8n)</div><div class="val">~500 ₽</div></div>
+    <div class="cost-row"><div class="item">Claude API · ~250k токенов/мес</div><div class="val">~2 500 ₽</div></div>
+    <div class="cost-row"><div class="item">Kie.ai · ~12 Reels/мес</div><div class="val">~2 500 ₽</div></div>
+    <div class="cost-row"><div class="item">Apify scrapers (IG/TikTok) trial</div><div class="val">~0 ₽</div></div>
+    <div class="cost-row"><div class="item">Pinterest Trends API</div><div class="val">0 ₽</div></div>
+    <div class="cost-row"><div class="item">Tavily Search (трендвотчинг)</div><div class="val">~500 ₽</div></div>
+    <div class="cost-row"><div class="item">Домен и https</div><div class="val">~200 ₽</div></div>
+    <div class="cost-row total"><div class="item">Итого</div><div class="val">~6 200 ₽ / мес</div></div>
+  </div>
+  <p style="font-size:13px;color:var(--p30);margin-top:24px;max-width:560px">Для сравнения: Airtable Team на двоих — 4 000 ₽/мес только за базу. Один наёмный SMM-щик на полставки — 30 000+ ₽/мес. Один пост от внешнего копирайтера — 1 500 ₽. При 40 постах в неделю система окупается за 3 дня работы.</p>
+</section>
+
+<!-- ─────────── METRICS ─────────── -->
+<section>
+  <span class="sec-label">10 — Что считаем</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Метрики, на которые<br>система реагирует.</h2>
+  <p class="sec-lead">Не «лайки». Метрики, которые превращаются в лиды и контракты. Аналитика возвращается в Editor и Idea Expander — система сама усиливает работающие пиллары.</p>
+
+  <div class="agents" style="grid-template-columns:repeat(4,1fr)">
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">5 000+</strong>подписчиков IG · цель 90 дней</div></div>
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">20+</strong>входящих лидов / мес · цель M3</div></div>
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">≤48ч</strong>цикл от идеи до публикации</div></div>
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">15 мин</strong>в день у Оли в Inbox</div></div>
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">40–50</strong>единиц контента в неделю</div></div>
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">≤30%</strong>драфтов требуют правок</div></div>
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">10+</strong>событий / мес · цель M3</div></div>
+    <div class="agent"><div class="role" style="flex-grow:0"><strong style="color:var(--paper);font-weight:300;font-size:48px;display:block;margin-bottom:8px;letter-spacing:-.02em">2M ₽</strong>выручка / мес · цель M3</div></div>
+  </div>
+</section>
+
+<footer>
+  <h2>Готов нажимать кнопку «спринт»?</h2>
+  <p>День 1 начинается с VPS и заканчивается первой идеей Оли, прошедшей весь цикл вручную. День 2 — автопилот. К вечеру вторника фабрика работает.</p>
+  <div class="end-meta">КИТ · Content Factory v0.1 · /06_pipeline/CONTENT_FACTORY_VISUAL.html</div>
+</footer>
+
+</body>
+</html>
