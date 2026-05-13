@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<!-- saved from url=(0124)file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KIT — 10 Визуальных Концепций</title>
+<link href="./KИТ — 10 Визуальных Концепций_files/css2" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #111; color: #fff; font-family: 'Montserrat', sans-serif; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,10,10,0.95); backdrop-filter: blur(10px);
+  padding: 16px 40px; display: flex; gap: 8px; flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+nav a {
+  color: rgba(255,255,255,0.5); text-decoration: none;
+  font-size: 11px; font-family: 'Montserrat', sans-serif;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: all 0.2s;
+}
+nav a:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+nav a.active { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 120px 40px 80px;
+  background: radial-gradient(ellipse at 50% 60%, rgba(74,94,79,0.3) 0%, transparent 70%);
+}
+.hero-tag {
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 96px);
+  font-weight: 300; font-style: italic; line-height: 1.05;
+  background: linear-gradient(135deg, #F5F0E8 0%, #C9A99A 50%, #B8935A 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+}
+.hero p {
+  font-size: 15px; color: rgba(255,255,255,0.45); font-weight: 300;
+  letter-spacing: 0.05em; max-width: 480px; margin: 0 auto 48px;
+  line-height: 1.8;
+}
+.scroll-hint { font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.15em; text-transform: uppercase; }
+
+/* SECTION */
+.concept { min-height: 100vh; padding: 100px 0; }
+.concept-header { text-align: center; padding: 0 40px 80px; }
+.concept-number {
+  font-family: 'Cormorant Garamond', serif; font-size: 120px; font-weight: 300;
+  line-height: 1; opacity: 0.06; position: absolute; left: 50%; transform: translateX(-50%);
+  pointer-events: none; white-space: nowrap;
+}
+.concept-label {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 12px; display: block;
+}
+.concept-name {
+  font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300; line-height: 1.1; margin-bottom: 16px;
+}
+.concept-desc {
+  font-size: 14px; color: rgba(255,255,255,0.45); font-weight: 300;
+  max-width: 560px; margin: 0 auto; line-height: 1.8;
+}
+
+/* PALETTE ROW */
+.palette {
+  display: flex; gap: 0; margin: 0 40px 60px; border-radius: 16px;
+  overflow: hidden; height: 80px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.swatch {
+  flex: 1; display: flex; align-items: flex-end; padding: 10px 12px;
+  font-size: 10px; letter-spacing: 0.05em; font-family: 'Montserrat', sans-serif;
+  transition: flex 0.3s; cursor: default;
+}
+.swatch:hover { flex: 2; }
+.swatch span { opacity: 0.7; }
+
+/* MOCKUP GRID */
+.mockup-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px;
+  margin: 0 40px; border-radius: 16px; overflow: hidden;
+}
+.mockup-grid-2 { grid-template-columns: 1.4fr 1fr; }
+.mockup-grid-4 { grid-template-columns: 1fr 1fr; }
+
+/* PHONE MOCKUP */
+.phone-wrap { display: flex; justify-content: center; padding: 20px; }
+.phone {
+  width: 240px; height: 480px; border-radius: 36px;
+  border: 6px solid rgba(255,255,255,0.1); overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.05);
+  position: relative;
+}
+.phone-notch {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 24px; background: rgba(0,0,0,0.8);
+  border-radius: 0 0 16px 16px; z-index: 10;
+}
+
+/* WEBSITE MOCKUP */
+.website-mock {
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.browser-bar {
+  height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 14px;
+  background: rgba(30,30,30,0.9);
+}
+.browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+/* IG GRID */
+.ig-wrap { padding: 20px; }
+.ig-profile { display: flex; flex-direction: column; overflow: hidden; border-radius: 12px; }
+.ig-header { padding: 16px; display: flex; gap: 12px; align-items: center; }
+.ig-avatar { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; }
+.ig-stats { display: flex; gap: 16px; font-size: 10px; text-align: center; }
+.ig-stat-num { font-weight: 600; font-size: 14px; display: block; }
+.ig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.ig-cell { aspect-ratio: 1; overflow: hidden; }
+.ig-cell img { width: 100%; height: 100%; object-fit: cover; }
+
+/* CARD */
+.card-wrap { padding: 20px; display: flex; justify-content: center; }
+.biz-card {
+  width: 320px; height: 180px; border-radius: 12px; padding: 28px 32px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  position: relative; overflow: hidden;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  margin: 0 40px;
+}
+
+/* MOOD TAG */
+.mood-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin: 24px 40px 0; }
+.mood-tag {
+  font-size: 11px; padding: 5px 14px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.4);
+  font-family: 'Montserrat', sans-serif; letter-spacing: 0.05em;
+}
+
+/* TYPOGRAPHY SHOWCASE */
+.type-showcase { margin: 0 40px 60px; padding: 40px; border-radius: 16px; }
+
+/* FOOTER NOTE */
+.footnote {
+  text-align: center; padding: 20px 40px;
+  font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em;
+}
+
+/* SECTION LABEL */
+.section-label {
+  font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.2em;
+  text-transform: uppercase; text-align: center; padding: 0 40px;
+  margin-bottom: 20px; display: block;
+}
+
+/* ——————————————————————————————————————————
+   CONCEPT SPECIFIC STYLES
+—————————————————————————————————————————— */
+
+/* C1 — BOTANICAL ELEGANCE */
+#c1 { background: #1A2218; }
+.c1-palette { background: linear-gradient(180deg, #1A2218 0%, #263324 100%); }
+
+/* C2 — MODERN ROMANCE */
+#c2 { background: #1C1516; }
+
+/* C3 — DARK MOODY FLORAL */
+#c3 { background: #0D0F0E; }
+
+/* C4 — SCANDINAVIAN WARMTH */
+#c4 { background: #1E1A17; }
+
+/* C5 — EDITORIAL NOIR */
+#c5 { background: #0A0A0A; }
+
+/* C6 — SOFT GARDEN */
+#c6 { background: #1A1619; }
+
+/* C7 — ARTISAN CRAFT */
+#c7 { background: #1A1510; }
+
+/* C8 — CLEAN MINIMAL */
+#c8 { background: #141414; }
+
+/* C9 — VINTAGE ROMANCE */
+#c9 { background: #16130F; }
+
+/* C10 — BOLD NATURE */
+#c10 { background: #0A120C; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+/* RESPONSIVE GRID HELPER */
+@media (max-width: 768px) {
+  .mockup-grid, .mockup-grid-2 { grid-template-columns: 1fr; }
+  nav { padding: 12px 16px; }
+  .concept-header { padding: 0 20px 60px; }
+  .palette { margin: 0 20px 40px; }
+  .mockup-grid { margin: 0 20px; }
+  .type-showcase { margin: 0 20px 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#hero" class="active">KIT × 10</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c1" class="">01 Botanical</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c2" class="">02 Romance</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c3" class="">03 Dark Floral</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c4" class="">04 Scandinavian</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c5" class="">05 Editorial</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c6" class="">06 Soft Garden</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c7" class="">07 Artisan</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c8" class="">08 Minimal</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c9" class="">09 Vintage</a>
+  <a href="file:///C:/Users/pocht/AppData/Local/Temp/MicrosoftEdgeDownloads/6ee643a3-3c69-4c9a-8bd6-d42b761c627c/KIT_MOODBOARDS_10.html#c10" class="">10 Bold Nature</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div>
+    <p class="hero-tag">KIT — Красота. Искусство. Тепло.</p>
+    <h1>10 Визуальных<br>Концепций</h1>
+    <p>Каждая концепция — полноценное видение бренда:<br>цвета, шрифты, Instagram, сайт, визитки.</p>
+    <p class="scroll-hint">↓ скролль вниз</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 01 — BOTANICAL ELEGANCE
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c1" style="background:#18211A;">
+  <div class="concept-header" style="position:relative;">
+    <span class="concept-label">Концепция 01</span>
+    <h2 class="concept-name" style="color:#A8C5A0; font-family:&#39;Cormorant Garamond&#39;,serif; font-style:italic;">Botanical Elegance</h2>
+    <p class="concept-desc">Живая природа как главный герой. Ботанические иллюстрации, сочный шалфей, слоновая кость. Ощущение оранжереи — влажной, тёплой, живой.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Живая природа</span>
+      <span class="mood-tag">Ботаника</span>
+      <span class="mood-tag">Влажность</span>
+      <span class="mood-tag">Оранжерея</span>
+      <span class="mood-tag">Органика</span>
+    </div>
+  </div>
+
+  <!-- Palette -->
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    <div class="swatch" style="background:#2D4A32; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Forest #2D4A32</span></div>
+    <div class="swatch" style="background:#4A5E4F; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Sage #4A5E4F</span></div>
+    <div class="swatch" style="background:#A8C5A0; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.5); font-size:10px;">Mint #A8C5A0</span></div>
+    <div class="swatch" style="background:#F5F0E8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Ivory #F5F0E8</span></div>
+    <div class="swatch" style="background:#B8935A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.7); font-size:10px;">Bronze #B8935A</span></div>
+    <div class="swatch" style="background:#E8DDD0; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Sand #E8DDD0</span></div>
+  </div>
+
+  <!-- Typography -->
+  <div class="type-showcase" style="background:rgba(255,255,255,0.03); margin:0 40px 60px; padding:48px; border-radius:20px; border:1px solid rgba(168,197,160,0.1);">
+    <p style="font-family:&#39;Cormorant Garamond&#39;,serif; font-size:clamp(40px,6vw,72px); font-style:italic; font-weight:300; color:#A8C5A0; line-height:1.1; margin-bottom:16px;">Атмосфера,<br>которую помнят</p>
+    <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:13px; color:rgba(255,255,255,0.4); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:24px;">KIT — Красота. Искусство. Тепло.</p>
+    <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:14px; color:rgba(255,255,255,0.5); font-weight:300; line-height:1.8; max-width:480px;">Мы не просто декорируем пространство — мы создаём атмосферу, в которую хочется вернуться.</p>
+    <div style="margin-top:32px; display:flex; gap:12px;">
+      <div style="padding:12px 28px; background:#4A5E4F; color:#F5F0E8; border-radius:4px; font-size:12px; letter-spacing:0.1em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500;">Обсудить проект</div>
+      <div style="padding:12px 28px; border:1px solid rgba(168,197,160,0.3); color:rgba(168,197,160,0.7); border-radius:4px; font-size:12px; letter-spacing:0.1em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500;">Портфолио</div>
+    </div>
+  </div>
+
+  <!-- Website mockup -->
+  <div style="margin:0 40px 60px;">
+    <span class="section-label" style="text-align:left; display:block; margin-bottom:16px; font-size:10px; color:rgba(255,255,255,0.25); letter-spacing:0.2em; text-transform:uppercase;">Сайт — главная страница</span>
+    <div class="website-mock">
+      <div class="browser-bar" style="background:#1A211A;">
+        <div class="browser-dot" style="background:#FF5F57;"></div>
+        <div class="browser-dot" style="background:#FEBC2E;"></div>
+        <div class="browser-dot" style="background:#28C840;"></div>
+        <div style="flex:1; margin-left:12px; background:rgba(255,255,255,0.06); border-radius:4px; height:18px; display:flex; align-items:center; padding:0 10px; font-size:9px; color:rgba(255,255,255,0.25); font-family:&#39;Montserrat&#39;,sans-serif;">kit-decor.ru</div>
+      </div>
+      <!-- Hero section -->
+      <div style="background:linear-gradient(160deg, #1A2E1C 0%, #2D4A32 60%, #1A2218 100%); padding:60px 48px; min-height:320px; display:flex; align-items:center; position:relative; overflow:hidden;">
+        <div style="position:absolute; right:-40px; top:-40px; width:300px; height:300px; border-radius:50%; background:radial-gradient(circle, rgba(168,197,160,0.15) 0%, transparent 70%);"></div>
+        <div>
+          <p style="font-size:10px; letter-spacing:0.25em; color:rgba(168,197,160,0.6); text-transform:uppercase; margin-bottom:16px; font-family:&#39;Montserrat&#39;,sans-serif;">Санкт-Петербург · 5 лет · 150+ событий</p>
+          <h1 style="font-family:&#39;Cormorant Garamond&#39;,serif; font-size:52px; font-style:italic; font-weight:300; color:#F5F0E8; line-height:1.1; margin-bottom:20px;">Декор и флористика<br><span style="color:#A8C5A0;">для особых событий</span></h1>
+          <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:13px; color:rgba(245,240,232,0.55); font-weight:300; line-height:1.8; max-width:420px; margin-bottom:32px;">Свадьбы, витрины, корпоративы — создаём атмосферы, которые запоминают.</p>
+          <div style="display:flex; gap:12px;">
+            <div style="padding:14px 32px; background:#A8C5A0; color:#1A2218; border-radius:4px; font-size:12px; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:600; letter-spacing:0.08em;">Обсудить проект</div>
+            <div style="padding:14px 32px; border:1px solid rgba(168,197,160,0.3); color:#A8C5A0; border-radius:4px; font-size:12px; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:400; letter-spacing:0.08em;">Смотреть работы</div>
+          </div>
+        </div>
+      </div>
+      <!-- Nav bar -->
+      <div style="background:#F5F0E8; padding:0 48px; height:52px; display:flex; align-items:center; justify-content:space-between;">
+        <span style="font-family:&#39;Cormorant Garamond&#39;,serif; font-size:22px; font-style:italic; color:#2D4A32; font-weight:400;">KIT</span>
+        <div style="display:flex; gap:28px;">
+          <span style="font-size:11px; color:#4A5E4F; font-family:&#39;Montserrat&#39;,sans-serif; letter-spacing:0.05em;">Работы</span>
+          <span style="font-size:11px; color:#4A5E4F; font-family:&#39;Montserrat&#39;,sans-serif; letter-spacing:0.05em;">Услуги</span>
+          <span style="font-size:11px; color:#4A5E4F; font-family:&#39;Montserrat&#39;,sans-serif; letter-spacing:0.05em;">О нас</span>
+          <span style="font-size:11px; color:#2D4A32; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:600; letter-spacing:0.05em;">Контакт</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instagram mockup -->
+  <div style="margin:0 40px;">
+    <span class="section-label" style="text-align:left; display:block; margin-bottom:16px; font-size:10px; color:rgba(255,255,255,0.25); letter-spacing:0.2em; text-transform:uppercase;">Instagram профиль</span>
+    <div style="background:#F5F0E8; border-radius:16px; overflow:hidden; max-width:320px;">
+      <div style="padding:16px; background:#F5F0E8;">
+        <div style="display:flex; gap:14px; align-items:center; margin-bottom:12px;">
+          <div style="width:60px; height:60px; border-radius:50%; background:linear-gradient(135deg, #4A5E4F, #A8C5A0); display:flex; align-items:center; justify-content:center; font-family:&#39;Cormorant Garamond&#39;,serif; font-size:22px; color:#F5F0E8; font-style:italic; flex-shrink:0;">K</div>
+          <div>
+            <p style="font-size:14px; font-weight:600; color:#1A2218; font-family:&#39;Montserrat&#39;,sans-serif;">kit.decor.spb</p>
+            <p style="font-size:11px; color:#4A5E4F; font-family:&#39;Montserrat&#39;,sans-serif;">Декор и флористика · СПб</p>
+          </div>
+        </div>
+        <p style="font-size:11px; color:#2C2C2C; font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6; margin-bottom:8px;"><strong>KIT — Красота. Искусство. Тепло.</strong><br>Создаём атмосферы для свадеб, витрин, событий<br>🌿 5 лет · 150+ событий · СПб</p>
+        <div style="height:28px; background:#4A5E4F; border-radius:6px; display:flex; align-items:center; justify-content:center; margin-top:8px;">
+          <span style="font-size:11px; color:#F5F0E8; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500;">Написать нам</span>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px;">
+        <div style="aspect-ratio:1; background:linear-gradient(135deg, #4A5E4F 0%, #A8C5A0 100%); display:flex; align-items:center; justify-content:center; font-family:&#39;Cormorant Garamond&#39;,serif; font-size:11px; color:rgba(245,240,232,0.7); font-style:italic; text-align:center; padding:8px;">Свадьба<br>Ивановых</div>
+        <div style="aspect-ratio:1; background:linear-gradient(135deg, #E8DDD0 0%, #B8935A 100%); display:flex; align-items:center; justify-content:center; font-family:&#39;Cormorant Garamond&#39;,serif; font-size:11px; color:rgba(26,33,24,0.8); font-style:italic; text-align:center; padding:8px;">«Мы хотели<br>не как у всех»</div>
+        <div style="aspect-ratio:1; background:linear-gradient(135deg, #2D4A32 0%, #4A5E4F 100%); display:flex; align-items:center; justify-content:center; font-family:&#39;Cormorant Garamond&#39;,serif; font-size:11px; color:rgba(168,197,160,0.9); font-style:italic; text-align:center; padding:8px;">BTS<br>Репино</div>
+        <div style="aspect-ratio:1; background:linear-gradient(135deg, #B8935A 0%, #E8DDD0 100%); display:flex; align-items:center; justify-content:center; font-family:&#39;Cormorant Garamond&#39;,serif; font-size:11px; color:rgba(26,33,24,0.8); font-style:italic; text-align:center; padding:8px;">Витрина<br>Невский</div>
+        <div style="aspect-ratio:1; background:linear-gradient(135deg, #A8C5A0 0%, #4A5E4F 100%); display:flex; align-items:center; justify-content:center; font-family:&#39;Cormorant Garamond&#39;,serif; font-size:11px; color:rgba(245,240,232,0.9); font-style:italic; text-align:center; padding:8px;">Свадьба<br>Петровых</div>
+        <div style="aspect-ratio:1; background:linear-gradient(135deg, #1A2218 0%, #2D4A32 100%); display:flex; align-items:center; justify-content:center; font-family:&#39;Montserrat&#39;,sans-serif; font-size:10px; color:rgba(168,197,160,0.7); text-align:center; padding:8px; letter-spacing:0.05em;">5 трендов<br>2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 02 — MODERN ROMANCE
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c2" style="background:#1A1316;">
+  <div class="concept-header" style="position:relative;">
+    <span class="concept-label">Концепция 02</span>
+    <h2 class="concept-name" style="color:#C9A99A; font-family:&#39;Playfair Display&#39;,serif; font-style:italic;">Modern Romance</h2>
+    <p class="concept-desc">Пыльная роза встречает современную графику. Женственно, но не слащаво. Элегантность через пустоту и одну точную деталь.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Пыльная роза</span>
+      <span class="mood-tag">Современность</span>
+      <span class="mood-tag">Женственность</span>
+      <span class="mood-tag">Точность</span>
+      <span class="mood-tag">Чистота</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    <div class="swatch" style="background:#C9A99A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.5); font-size:10px;">Rose #C9A99A</span></div>
+    <div class="swatch" style="background:#E8D5CC; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Blush #E8D5CC</span></div>
+    <div class="swatch" style="background:#F9F5F2; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.3); font-size:10px;">Cream #F9F5F2</span></div>
+    <div class="swatch" style="background:#2C2C2C; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Charcoal #2C2C2C</span></div>
+    <div class="swatch" style="background:#B8935A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.7); font-size:10px;">Gold #B8935A</span></div>
+    <div class="swatch" style="background:#9B8EA8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Lavender #9B8EA8</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:#F9F5F2; margin:0 40px 60px; padding:48px; border-radius:20px;">
+    <p style="font-family:&#39;Playfair Display&#39;,serif; font-size:clamp(36px,5vw,64px); font-style:italic; color:#2C2C2C; line-height:1.15; margin-bottom:16px;">Ваш праздник<br><span style="color:#C9A99A;">не должен быть</span><br>как у всех.</p>
+    <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:12px; letter-spacing:0.18em; color:#9B8EA8; text-transform:uppercase; margin-bottom:24px;">KIT · Декор &amp; Флористика</p>
+    <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:14px; color:rgba(44,44,44,0.55); font-weight:300; line-height:1.9; max-width:440px;">Мы создаём атмосферу — живую, тёплую, с характером. Без шаблонов.</p>
+    <div style="margin-top:32px; display:flex; gap:12px;">
+      <div style="padding:14px 32px; background:#C9A99A; color:#fff; border-radius:2px; font-size:11px; letter-spacing:0.12em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500; text-transform:uppercase;">Написать нам</div>
+      <div style="padding:14px 32px; border:1px solid rgba(44,44,44,0.2); color:rgba(44,44,44,0.6); border-radius:2px; font-size:11px; letter-spacing:0.12em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500; text-transform:uppercase;">Портфолио</div>
+    </div>
+  </div>
+
+  <!-- Post mockup -->
+  <div style="margin:0 40px;">
+    <span style="text-align:left; display:block; margin-bottom:16px; font-size:10px; color:rgba(255,255,255,0.25); letter-spacing:0.2em; text-transform:uppercase; font-family:&#39;Montserrat&#39;,sans-serif;">Пост в Instagram</span>
+    <div style="background:#F9F5F2; border-radius:16px; overflow:hidden; max-width:340px; border:1px solid rgba(201,169,154,0.2);">
+      <div style="padding:10px 14px; display:flex; align-items:center; gap:10px; border-bottom:1px solid rgba(201,169,154,0.15);">
+        <div style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg, #C9A99A, #9B8EA8);"></div>
+        <div>
+          <p style="font-size:12px; font-weight:600; color:#2C2C2C; font-family:&#39;Montserrat&#39;,sans-serif;">kit.decor.spb</p>
+          <p style="font-size:10px; color:#9B8EA8; font-family:&#39;Montserrat&#39;,sans-serif;">Петергоф, Санкт-Петербург</p>
+        </div>
+      </div>
+      <div style="aspect-ratio:4/5; background:linear-gradient(160deg, #E8D5CC 0%, #C9A99A 40%, #9B8EA8 100%); display:flex; align-items:flex-end; padding:24px; position:relative;">
+        <div style="position:absolute; top:24px; right:24px; font-family:&#39;Playfair Display&#39;,serif; font-size:36px; font-style:italic; color:rgba(255,255,255,0.15);">KIT</div>
+        <div>
+          <p style="font-family:&#39;Playfair Display&#39;,serif; font-size:20px; font-style:italic; color:#fff; line-height:1.3; margin-bottom:6px;">Свадьба Марины<br>и Алексея</p>
+          <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:10px; color:rgba(255,255,255,0.6); letter-spacing:0.1em;">Петергоф · Июнь 2025</p>
+        </div>
+      </div>
+      <div style="padding:14px;">
+        <p style="font-size:12px; color:#2C2C2C; font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.7;">Марина хотела <strong>«не как у всех»</strong>. Мы провели 3 часа на рынке, выбирая именно эти пионы. Потому что оттенок имеет значение.</p>
+        <p style="font-size:11px; color:#C9A99A; font-family:&#39;Montserrat&#39;,sans-serif; margin-top:10px;">#KITwedding #свадьбаСПб #декорСПб</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 03 — DARK MOODY FLORAL
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c3" style="background:#0C0E0D;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 03</span>
+    <h2 class="concept-name" style="color:#D4AF8C; font-family:&#39;DM Serif Display&#39;,serif; font-style:italic;">Dark Moody Floral</h2>
+    <p class="concept-desc">Глубокий, чувственный, почти театральный. Тёмный фон подчёркивает цветы — как в голландской живописи XVII века. Для тех, кто не боится быть запомненным.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Драматичность</span>
+      <span class="mood-tag">Голландская живопись</span>
+      <span class="mood-tag">Глубина</span>
+      <span class="mood-tag">Театральность</span>
+      <span class="mood-tag">Золото</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+    <div class="swatch" style="background:#0C0E0D; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.4); font-size:10px;">Void #0C0E0D</span></div>
+    <div class="swatch" style="background:#1C2B1E; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.5); font-size:10px;">Deep #1C2B1E</span></div>
+    <div class="swatch" style="background:#8B4A2E; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Burgundy #8B4A2E</span></div>
+    <div class="swatch" style="background:#D4AF8C; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.5); font-size:10px;">Gold #D4AF8C</span></div>
+    <div class="swatch" style="background:#C8B8A2; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Linen #C8B8A2</span></div>
+    <div class="swatch" style="background:#4A1428; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.5); font-size:10px;">Wine #4A1428</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:linear-gradient(135deg, #1C2B1E 0%, #0C0E0D 100%); margin:0 40px 60px; padding:48px; border-radius:20px; border:1px solid rgba(212,175,140,0.1);">
+    <p style="font-family:&#39;DM Serif Display&#39;,serif; font-size:clamp(36px,5vw,68px); font-style:italic; line-height:1.1; margin-bottom:16px;">
+      <span style="color:#D4AF8C;">Красота</span><br>
+      <span style="color:#C8B8A2;">в темноте</span><br>
+      <span style="color:rgba(212,175,140,0.4);">видна ярче.</span>
+    </p>
+    <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:11px; letter-spacing:0.2em; color:rgba(212,175,140,0.4); text-transform:uppercase; margin-bottom:32px;">KIT · Декор &amp; Флористика · СПб</p>
+    <div style="display:flex; gap:12px;">
+      <div style="padding:14px 32px; background:linear-gradient(135deg, #D4AF8C, #B8935A); color:#0C0E0D; border-radius:2px; font-size:11px; letter-spacing:0.12em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:600; text-transform:uppercase;">Обсудить свадьбу</div>
+    </div>
+  </div>
+
+  <!-- Website dark version -->
+  <div style="margin:0 40px;">
+    <span style="text-align:left; display:block; margin-bottom:16px; font-size:10px; color:rgba(255,255,255,0.25); letter-spacing:0.2em; text-transform:uppercase; font-family:&#39;Montserrat&#39;,sans-serif;">Сайт — тёмная версия</span>
+    <div class="website-mock">
+      <div class="browser-bar" style="background:#0A0C0B;">
+        <div class="browser-dot" style="background:#FF5F57;"></div>
+        <div class="browser-dot" style="background:#FEBC2E;"></div>
+        <div class="browser-dot" style="background:#28C840;"></div>
+        <div style="flex:1; margin-left:12px; background:rgba(255,255,255,0.04); border-radius:4px; height:18px; display:flex; align-items:center; padding:0 10px; font-size:9px; color:rgba(255,255,255,0.2); font-family:&#39;Montserrat&#39;,sans-serif;">kit-decor.ru</div>
+      </div>
+      <div style="background:#0C0E0D; padding:48px; min-height:280px; display:flex; align-items:center; justify-content:space-between; position:relative; overflow:hidden;">
+        <div style="position:absolute; right:0; top:0; bottom:0; width:200px; background:linear-gradient(90deg, transparent, rgba(28,43,30,0.6)); pointer-events:none;"></div>
+        <div style="z-index:1; max-width:480px;">
+          <div style="width:40px; height:1px; background:#D4AF8C; margin-bottom:24px;"></div>
+          <h1 style="font-family:&#39;DM Serif Display&#39;,serif; font-size:48px; font-style:italic; color:#C8B8A2; line-height:1.1; margin-bottom:20px;">Мы создаём<br><span style="color:#D4AF8C;">атмосферы,</span><br>которые помнят.</h1>
+          <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:12px; color:rgba(200,184,162,0.45); font-weight:300; line-height:1.9; margin-bottom:28px;">Декор и флористика в Санкт-Петербурге. Свадьбы, витрины, события.</p>
+          <div style="padding:12px 28px; border:1px solid rgba(212,175,140,0.3); color:#D4AF8C; display:inline-block; font-size:11px; letter-spacing:0.15em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500; text-transform:uppercase;">Смотреть портфолио</div>
+        </div>
+        <div style="z-index:1; text-align:right; display:flex; flex-direction:column; gap:4px;">
+          <span style="font-family:&#39;DM Serif Display&#39;,serif; font-size:100px; font-style:italic; color:rgba(212,175,140,0.05); line-height:1;">KIT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 04 — SCANDINAVIAN WARMTH
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c4" style="background:#1A1712;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 04</span>
+    <h2 class="concept-name" style="color:#E8C9A0; font-family:&#39;Jost&#39;,sans-serif; font-weight:200; font-style:normal; letter-spacing:0.04em;">Scandinavian Warmth</h2>
+    <p class="concept-desc">Скандинавский минимализм, но тёплый. Терракота, льняной, глиняный. Пространство дышит. Меньше — значит больше. Хюгге для события.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Хюгге</span>
+      <span class="mood-tag">Минимализм</span>
+      <span class="mood-tag">Терракота</span>
+      <span class="mood-tag">Лён</span>
+      <span class="mood-tag">Воздух</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    <div class="swatch" style="background:#C8714A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.7); font-size:10px;">Terra #C8714A</span></div>
+    <div class="swatch" style="background:#E8C9A0; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.5); font-size:10px;">Sand #E8C9A0</span></div>
+    <div class="swatch" style="background:#F5EFE6; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.3); font-size:10px;">Linen #F5EFE6</span></div>
+    <div class="swatch" style="background:#3D3530; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Umber #3D3530</span></div>
+    <div class="swatch" style="background:#7A9B8A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Sage #7A9B8A</span></div>
+    <div class="swatch" style="background:#D4C4B0; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Clay #D4C4B0</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:#F5EFE6; margin:0 40px 60px; padding:48px 56px; border-radius:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <p style="font-family:&#39;Jost&#39;,sans-serif; font-weight:200; font-size:clamp(40px,5vw,72px); color:#3D3530; line-height:1.05; letter-spacing:-0.01em; margin-bottom:8px;">Атмосфера</p>
+        <p style="font-family:&#39;Jost&#39;,sans-serif; font-weight:200; font-size:clamp(40px,5vw,72px); color:#C8714A; line-height:1.05; letter-spacing:-0.01em; margin-bottom:8px;">которую</p>
+        <p style="font-family:&#39;Jost&#39;,sans-serif; font-weight:200; font-size:clamp(40px,5vw,72px); color:rgba(61,53,48,0.3); line-height:1.05; letter-spacing:-0.01em;">помнят.</p>
+      </div>
+      <div style="max-width:280px;">
+        <div style="width:32px; height:1px; background:#C8714A; margin-bottom:20px;"></div>
+        <p style="font-family:&#39;Jost&#39;,sans-serif; font-size:13px; color:rgba(61,53,48,0.55); font-weight:300; line-height:1.9; margin-bottom:24px;">Семейная студия декора и флористики в Санкт-Петербурге. Ольга и Андрей — лично на каждом проекте.</p>
+        <div style="padding:12px 24px; background:#C8714A; color:#F5EFE6; display:inline-block; font-size:12px; letter-spacing:0.06em; font-family:&#39;Jost&#39;,sans-serif; font-weight:400; border-radius:2px;">Написать нам →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 05 — EDITORIAL NOIR
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c5" style="background:#080808;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 05</span>
+    <h2 class="concept-name" style="color:#FFFFFF; font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:300; letter-spacing:-0.02em;">Editorial Noir</h2>
+    <p class="concept-desc">Чёрный. Белый. Один акцент. Как обложка Vogue — безупречная типографика, смелое пространство, ничего лишнего. Самый дерзкий вариант.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Vogue</span>
+      <span class="mood-tag">Типографика</span>
+      <span class="mood-tag">Смелость</span>
+      <span class="mood-tag">Монохром</span>
+      <span class="mood-tag">Редакционный</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.8);">
+    <div class="swatch" style="background:#080808; flex:2; display:flex; align-items:flex-end; padding:10px 12px; border:1px solid rgba(255,255,255,0.06);"><span style="color:rgba(255,255,255,0.4); font-size:10px;">Noir #080808</span></div>
+    <div class="swatch" style="background:#1A1A1A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.4); font-size:10px;">#1A1A1A</span></div>
+    <div class="swatch" style="background:#F0EDE8; flex:2; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Paper #F0EDE8</span></div>
+    <div class="swatch" style="background:#C9A99A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.5); font-size:10px;">Accent</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:#080808; margin:0 40px 60px; padding:48px; border-radius:20px; border:1px solid rgba(255,255,255,0.06);">
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+      <div>
+        <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:300; font-size:clamp(48px,7vw,96px); color:#F0EDE8; line-height:0.95; letter-spacing:-0.03em; margin-bottom:4px;">KIT</p>
+        <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:300; font-size:clamp(48px,7vw,96px); color:rgba(240,237,232,0.08); line-height:0.95; letter-spacing:-0.03em;">DECOR</p>
+      </div>
+      <div style="max-width:320px; padding-top:16px;">
+        <div style="width:24px; height:1px; background:#C9A99A; margin-bottom:24px;"></div>
+        <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-size:14px; color:rgba(240,237,232,0.45); font-weight:300; line-height:1.8; margin-bottom:32px;">Декор и флористика<br>для особых событий<br>в Санкт-Петербурге.</p>
+        <p style="font-size:10px; letter-spacing:0.2em; color:rgba(201,169,154,0.6); text-transform:uppercase; font-family:&#39;Space Grotesk&#39;,sans-serif;">5 лет · 150+ событий</p>
+      </div>
+    </div>
+    <div style="margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.06); display:flex; gap:16px;">
+      <div style="padding:14px 32px; background:#F0EDE8; color:#080808; font-size:11px; letter-spacing:0.1em; font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:500; text-transform:uppercase;">Написать</div>
+      <div style="padding:14px 32px; border:1px solid rgba(240,237,232,0.15); color:rgba(240,237,232,0.4); font-size:11px; letter-spacing:0.1em; font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:400; text-transform:uppercase;">Портфолио</div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 06 — SOFT GARDEN
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c6" style="background:#18151A;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 06</span>
+    <h2 class="concept-name" style="color:#D4B8D8; font-family:&#39;EB Garamond&#39;,serif; font-style:italic; font-weight:400;">Soft Garden</h2>
+    <p class="concept-desc">Акварельная нежность. Лаванда, пудрово-розовый, дымчатый зелёный. Как утренний сад после дождя — влажный, свежий, пахнущий.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Акварель</span>
+      <span class="mood-tag">Лаванда</span>
+      <span class="mood-tag">Нежность</span>
+      <span class="mood-tag">Утро</span>
+      <span class="mood-tag">Дождь</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    <div class="swatch" style="background:#D4B8D8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Lavender</span></div>
+    <div class="swatch" style="background:#E8D0D8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.35); font-size:10px;">Blush</span></div>
+    <div class="swatch" style="background:#B8D4C8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Mint</span></div>
+    <div class="swatch" style="background:#F8F2F5; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.3); font-size:10px;">Mist</span></div>
+    <div class="swatch" style="background:#9B8EA8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Purple</span></div>
+    <div class="swatch" style="background:#C8A8B8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Rose</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:linear-gradient(135deg, #F8F2F5 0%, #EDE4EF 100%); margin:0 40px 60px; padding:48px; border-radius:20px;">
+    <p style="font-family:&#39;EB Garamond&#39;,serif; font-size:clamp(36px,5vw,68px); font-style:italic; color:#4A3D52; line-height:1.15; margin-bottom:20px;">Каждый цветок —<br><span style="color:#9B8EA8;">намеренный.</span></p>
+    <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:13px; color:rgba(74,61,82,0.5); font-weight:300; line-height:1.9; max-width:420px; margin-bottom:32px;">Мы создаём флористические пространства, где каждая деталь говорит о вас — а не о каталоге.</p>
+    <div style="padding:12px 28px; background:#9B8EA8; color:#fff; display:inline-block; border-radius:24px; font-size:12px; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500; letter-spacing:0.05em;">Обсудить идею 🌸</div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 07 — ARTISAN CRAFT
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c7" style="background:#181210;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 07</span>
+    <h2 class="concept-name" style="color:#D4A574; font-family:&#39;Libre Baskerville&#39;,serif; font-style:italic; font-weight:400;">Artisan Craft</h2>
+    <p class="concept-desc">Ремесленная эстетика. Крафт, фактура, тепло дерева и глины. Как будто работы сделаны руками — потому что так и есть.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Ремесло</span>
+      <span class="mood-tag">Фактура</span>
+      <span class="mood-tag">Ручная работа</span>
+      <span class="mood-tag">Дерево</span>
+      <span class="mood-tag">Тепло</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+    <div class="swatch" style="background:#3D2B1A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.5); font-size:10px;">Bark #3D2B1A</span></div>
+    <div class="swatch" style="background:#8B6B45; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Oak #8B6B45</span></div>
+    <div class="swatch" style="background:#D4A574; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.5); font-size:10px;">Honey #D4A574</span></div>
+    <div class="swatch" style="background:#F0E6D8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.35); font-size:10px;">Parchment</span></div>
+    <div class="swatch" style="background:#7A8C6A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Moss #7A8C6A</span></div>
+    <div class="swatch" style="background:#C4785A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.7); font-size:10px;">Clay #C4785A</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:#F0E6D8; margin:0 40px 60px; padding:48px; border-radius:20px; position:relative; overflow:hidden;">
+    <div style="position:absolute; top:0; right:0; bottom:0; width:160px; background:linear-gradient(90deg, transparent, rgba(61,43,26,0.05));"></div>
+    <p style="font-family:&#39;Libre Baskerville&#39;,serif; font-size:10px; letter-spacing:0.25em; color:#8B6B45; text-transform:uppercase; margin-bottom:24px;">Ольга и Андрей · КИТ</p>
+    <p style="font-family:&#39;Libre Baskerville&#39;,serif; font-size:clamp(32px,4vw,56px); font-style:italic; color:#3D2B1A; line-height:1.2; margin-bottom:24px;">«Каждая работа —<br>это мы, лично.»</p>
+    <p style="font-family:&#39;Montserrat&#39;,sans-serif; font-size:13px; color:rgba(61,43,26,0.55); font-weight:300; line-height:1.9; max-width:400px; margin-bottom:32px;">Пять лет мы делаем это сами. Без субподрядчиков. Без менеджеров. Только мы и ваш праздник.</p>
+    <div style="display:flex; gap:16px; align-items:center;">
+      <div style="padding:12px 28px; background:#3D2B1A; color:#F0E6D8; border-radius:2px; font-size:11px; letter-spacing:0.1em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500; text-transform:uppercase;">Написать Андрею</div>
+      <span style="font-family:&#39;Libre Baskerville&#39;,serif; font-size:12px; font-style:italic; color:#8B6B45;">или Ольге</span>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 08 — CLEAN MINIMAL
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c8" style="background:#111;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 08</span>
+    <h2 class="concept-name" style="color:#FFFFFF; font-family:&#39;Inter&#39;,sans-serif; font-weight:300; letter-spacing:0.01em;">Clean Minimal</h2>
+    <p class="concept-desc">Один цвет-акцент. Много белого пространства. Типографика работает сама. Для тех, кто считает что меньше — это роскошь.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Белое пространство</span>
+      <span class="mood-tag">Один акцент</span>
+      <span class="mood-tag">Роскошь через простоту</span>
+      <span class="mood-tag">Apple-эстетика</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    <div class="swatch" style="background:#FFFFFF; flex:3; display:flex; align-items:flex-end; padding:10px 12px; border:1px solid rgba(0,0,0,0.06);"><span style="color:rgba(0,0,0,0.3); font-size:10px;">White (основа)</span></div>
+    <div class="swatch" style="background:#F7F7F7; flex:2; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.3); font-size:10px;">#F7F7F7</span></div>
+    <div class="swatch" style="background:#1A1A1A; flex:2; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.5); font-size:10px;">#1A1A1A</span></div>
+    <div class="swatch" style="background:#4A5E4F; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Акцент</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:#FFFFFF; margin:0 40px 60px; padding:64px 56px; border-radius:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;">
+      <div>
+        <p style="font-family:&#39;Inter&#39;,sans-serif; font-weight:300; font-size:clamp(48px,7vw,88px); color:#1A1A1A; line-height:1.0; letter-spacing:-0.03em; margin-bottom:0;">KIT</p>
+        <p style="font-family:&#39;Inter&#39;,sans-serif; font-weight:300; font-size:clamp(14px,2vw,22px); color:#4A5E4F; line-height:1.0; letter-spacing:0.02em; margin-top:4px;">Красота · Искусство · Тепло</p>
+      </div>
+      <div style="max-width:300px;">
+        <p style="font-family:&#39;Inter&#39;,sans-serif; font-size:14px; color:rgba(26,26,26,0.45); font-weight:300; line-height:1.9; margin-bottom:28px;">Декор и флористика для особых событий в Санкт-Петербурге.</p>
+        <div style="padding:12px 24px; background:#4A5E4F; color:#fff; display:inline-block; font-size:12px; letter-spacing:0.05em; font-family:&#39;Inter&#39;,sans-serif; font-weight:400; border-radius:4px;">Обсудить проект</div>
+      </div>
+    </div>
+    <div style="margin-top:48px; padding-top:32px; border-top:1px solid rgba(26,26,26,0.08); display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+      <div><p style="font-family:&#39;Inter&#39;,sans-serif; font-size:32px; font-weight:300; color:#1A1A1A; margin-bottom:4px;">150+</p><p style="font-size:11px; color:rgba(26,26,26,0.35); font-family:&#39;Inter&#39;,sans-serif; letter-spacing:0.05em;">СОБЫТИЙ</p></div>
+      <div><p style="font-family:&#39;Inter&#39;,sans-serif; font-size:32px; font-weight:300; color:#1A1A1A; margin-bottom:4px;">5</p><p style="font-size:11px; color:rgba(26,26,26,0.35); font-family:&#39;Inter&#39;,sans-serif; letter-spacing:0.05em;">ЛЕТ</p></div>
+      <div><p style="font-family:&#39;Inter&#39;,sans-serif; font-size:32px; font-weight:300; color:#1A1A1A; margin-bottom:4px;">2</p><p style="font-size:11px; color:rgba(26,26,26,0.35); font-family:&#39;Inter&#39;,sans-serif; letter-spacing:0.05em;">ОСНОВАТЕЛЯ</p></div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 09 — VINTAGE ROMANCE
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c9" style="background:#14110D;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 09</span>
+    <h2 class="concept-name" style="color:#D4C09A; font-family:&#39;Bodoni Moda&#39;,serif; font-style:italic; font-weight:400;">Vintage Romance</h2>
+    <p class="concept-desc">Сепия, выцветший золотой, антикварная бумага. Как старые фотографии в бабушкином альбоме — тёплые, живые, с историей.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Сепия</span>
+      <span class="mood-tag">Антиква</span>
+      <span class="mood-tag">Ностальгия</span>
+      <span class="mood-tag">Старая бумага</span>
+      <span class="mood-tag">Золото</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+    <div class="swatch" style="background:#2C2318; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.4); font-size:10px;">Espresso</span></div>
+    <div class="swatch" style="background:#7A6040; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.5); font-size:10px;">Tobacco</span></div>
+    <div class="swatch" style="background:#D4C09A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.4); font-size:10px;">Antique Gold</span></div>
+    <div class="swatch" style="background:#F0E8D8; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.3); font-size:10px;">Aged Paper</span></div>
+    <div class="swatch" style="background:#9B7050; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.6); font-size:10px;">Caramel</span></div>
+    <div class="swatch" style="background:#5A3E28; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.5); font-size:10px;">Walnut</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:#F0E8D8; margin:0 40px 60px; padding:48px; border-radius:20px; position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%, rgba(122,96,64,0.08) 0%, transparent 60%); pointer-events:none;"></div>
+    <p style="font-family:&#39;Bodoni Moda&#39;,serif; font-size:11px; letter-spacing:0.3em; color:#7A6040; text-transform:uppercase; margin-bottom:24px;">Студия декора · КИТ · с 2020</p>
+    <p style="font-family:&#39;Bodoni Moda&#39;,serif; font-size:clamp(36px,5vw,64px); font-style:italic; color:#2C2318; line-height:1.15; margin-bottom:24px;">Праздники,<br>которые стали<br><span style="color:#7A6040;">историей.</span></p>
+    <div style="display:flex; gap:16px; align-items:center; margin-bottom:0;">
+      <div style="padding:12px 28px; background:#2C2318; color:#D4C09A; font-size:11px; letter-spacing:0.12em; font-family:&#39;Montserrat&#39;,sans-serif; font-weight:500; text-transform:uppercase; border-radius:2px;">Обсудить</div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     CONCEPT 10 — BOLD NATURE
+═══════════════════════════════════════════════════════ -->
+<section class="concept" id="c10" style="background:#060D08;">
+  <div class="concept-header">
+    <span class="concept-label">Концепция 10</span>
+    <h2 class="concept-name" style="color:#00FF7A; font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:600; letter-spacing:-0.02em;">Bold Nature</h2>
+    <p class="concept-desc">Неожиданный поворот. Глубокий лесной + яркий акцент. Не типичный "флористический" бренд — дерзкий, современный, запоминающийся. Для тех, кто устал от нежности.</p>
+    <div class="mood-tags">
+      <span class="mood-tag">Дерзость</span>
+      <span class="mood-tag">Неожиданность</span>
+      <span class="mood-tag">Лес</span>
+      <span class="mood-tag">Неоновый акцент</span>
+      <span class="mood-tag">Запомниться</span>
+    </div>
+  </div>
+
+  <div class="palette" style="margin:0 40px 60px; border-radius:16px; overflow:hidden; height:80px; display:flex; box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+    <div class="swatch" style="background:#060D08; flex:1; display:flex; align-items:flex-end; padding:10px 12px; border:1px solid rgba(255,255,255,0.04);"><span style="color:rgba(255,255,255,0.3); font-size:10px;">Forest Night</span></div>
+    <div class="swatch" style="background:#0D2410; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.4); font-size:10px;">Deep Forest</span></div>
+    <div class="swatch" style="background:#1A4020; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(255,255,255,0.5); font-size:10px;">Pine</span></div>
+    <div class="swatch" style="background:#00FF7A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.6); font-size:10px;">Neo Green</span></div>
+    <div class="swatch" style="background:#F5F5F0; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.35); font-size:10px;">Chalk</span></div>
+    <div class="swatch" style="background:#4AE88A; flex:1; display:flex; align-items:flex-end; padding:10px 12px;"><span style="color:rgba(0,0,0,0.5); font-size:10px;">Mint Neo</span></div>
+  </div>
+
+  <div class="type-showcase" style="background:#060D08; margin:0 40px 60px; padding:48px; border-radius:20px; border:1px solid rgba(0,255,122,0.08);">
+    <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:600; font-size:clamp(48px,8vw,100px); color:#00FF7A; line-height:0.9; letter-spacing:-0.04em; margin-bottom:8px;">KIT.</p>
+    <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:300; font-size:clamp(20px,3vw,36px); color:rgba(245,245,240,0.25); line-height:1.1; letter-spacing:-0.02em; margin-bottom:40px;">Декор, который замечают.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; max-width:480px; margin-bottom:40px;">
+      <div style="padding:16px; border:1px solid rgba(0,255,122,0.12); border-radius:8px;">
+        <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-size:28px; font-weight:500; color:#00FF7A; margin-bottom:4px;">150+</p>
+        <p style="font-size:10px; color:rgba(245,245,240,0.3); letter-spacing:0.1em;">СОБЫТИЙ</p>
+      </div>
+      <div style="padding:16px; border:1px solid rgba(0,255,122,0.12); border-radius:8px;">
+        <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-size:28px; font-weight:500; color:#00FF7A; margin-bottom:4px;">5</p>
+        <p style="font-size:10px; color:rgba(245,245,240,0.3); letter-spacing:0.1em;">ЛЕТ</p>
+      </div>
+      <div style="padding:16px; border:1px solid rgba(0,255,122,0.12); border-radius:8px;">
+        <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-size:28px; font-weight:500; color:#00FF7A; margin-bottom:4px;">0</p>
+        <p style="font-size:10px; color:rgba(245,245,240,0.3); letter-spacing:0.1em;">ШАБЛОНОВ</p>
+      </div>
+    </div>
+    <div style="display:flex; gap:12px;">
+      <div style="padding:14px 32px; background:#00FF7A; color:#060D08; font-size:12px; letter-spacing:0.05em; font-family:&#39;Space Grotesk&#39;,sans-serif; font-weight:600; border-radius:4px;">Написать →</div>
+      <div style="padding:14px 32px; border:1px solid rgba(0,255,122,0.2); color:rgba(0,255,122,0.5); font-size:12px; letter-spacing:0.05em; font-family:&#39;Space Grotesk&#39;,sans-serif; border-radius:4px;">Работы</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     COMPARISON SUMMARY
+═══════════════════════════════════════════════════════ -->
+<section style="background:#0D0D0D; padding:100px 40px;">
+  <div style="text-align:center; margin-bottom:60px;">
+    <span style="font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.3); font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:16px;">Итог</span>
+    <h2 style="font-family:&#39;Cormorant Garamond&#39;,serif; font-size:clamp(36px,5vw,60px); font-weight:300; font-style:italic; color:#F5F0E8; line-height:1.1; margin-bottom:16px;">Выберите свой характер</h2>
+    <p style="font-size:13px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; font-weight:300; line-height:1.8;">Каждая концепция — полноценный визуальный язык. Не нужно выбирать один в один — можно взять лучшее из нескольких.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:2px; border-radius:16px; overflow:hidden;">
+    <div style="background:#18211A; padding:32px 28px; border-bottom:3px solid #4A5E4F;">
+      <span style="font-size:10px; color:rgba(168,197,160,0.5); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">01</span>
+      <p style="font-family:&#39;Cormorant Garamond&#39;,serif; font-size:22px; font-style:italic; color:#A8C5A0; margin-bottom:8px;">Botanical Elegance</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Живая природа. Шалфей и слоновая кость. Для тех, кто любит оранжерею.</p>
+    </div>
+    <div style="background:#1A1316; padding:32px 28px; border-bottom:3px solid #C9A99A;">
+      <span style="font-size:10px; color:rgba(201,169,154,0.5); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">02</span>
+      <p style="font-family:&#39;Playfair Display&#39;,serif; font-size:22px; font-style:italic; color:#C9A99A; margin-bottom:8px;">Modern Romance</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Пыльная роза. Современно, женственно. Самый "свадебный" вариант.</p>
+    </div>
+    <div style="background:#0C0E0D; padding:32px 28px; border-bottom:3px solid #D4AF8C;">
+      <span style="font-size:10px; color:rgba(212,175,140,0.5); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">03</span>
+      <p style="font-family:&#39;DM Serif Display&#39;,serif; font-size:22px; font-style:italic; color:#D4AF8C; margin-bottom:8px;">Dark Moody Floral</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Голландская живопись. Тёмный фон, золото. Самый запоминающийся.</p>
+    </div>
+    <div style="background:#1A1712; padding:32px 28px; border-bottom:3px solid #C8714A;">
+      <span style="font-size:10px; color:rgba(200,113,74,0.5); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">04</span>
+      <p style="font-family:&#39;Jost&#39;,sans-serif; font-size:22px; font-weight:200; color:#E8C9A0; margin-bottom:8px;">Scandinavian Warmth</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Хюгге. Терракота и лён. Чистый, тёплый, воздушный.</p>
+    </div>
+    <div style="background:#080808; padding:32px 28px; border-bottom:3px solid #F0EDE8;">
+      <span style="font-size:10px; color:rgba(240,237,232,0.3); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">05</span>
+      <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-size:22px; font-weight:300; color:#F0EDE8; margin-bottom:8px;">Editorial Noir</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Чёрный + белый. Смелая типографика. Как Vogue.</p>
+    </div>
+    <div style="background:#18151A; padding:32px 28px; border-bottom:3px solid #D4B8D8;">
+      <span style="font-size:10px; color:rgba(212,184,216,0.5); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">06</span>
+      <p style="font-family:&#39;EB Garamond&#39;,serif; font-size:22px; font-style:italic; color:#D4B8D8; margin-bottom:8px;">Soft Garden</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Акварель. Лаванда и мята. Нежно, свежо, утренний сад.</p>
+    </div>
+    <div style="background:#181210; padding:32px 28px; border-bottom:3px solid #D4A574;">
+      <span style="font-size:10px; color:rgba(212,165,116,0.5); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">07</span>
+      <p style="font-family:&#39;Libre Baskerville&#39;,serif; font-size:22px; font-style:italic; color:#D4A574; margin-bottom:8px;">Artisan Craft</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Дерево, глина, мёд. Ремесленная эстетика. Всё — руками.</p>
+    </div>
+    <div style="background:#111; padding:32px 28px; border-bottom:3px solid #4A5E4F;">
+      <span style="font-size:10px; color:rgba(74,94,79,0.7); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">08</span>
+      <p style="font-family:&#39;Inter&#39;,sans-serif; font-size:22px; font-weight:300; color:#FFFFFF; margin-bottom:8px;">Clean Minimal</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Пустота как роскошь. Один акцент. Apple-подход.</p>
+    </div>
+    <div style="background:#14110D; padding:32px 28px; border-bottom:3px solid #D4C09A;">
+      <span style="font-size:10px; color:rgba(212,192,154,0.5); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">09</span>
+      <p style="font-family:&#39;Bodoni Moda&#39;,serif; font-size:22px; font-style:italic; color:#D4C09A; margin-bottom:8px;">Vintage Romance</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Сепия и антиква. Старые фотографии. Тепло истории.</p>
+    </div>
+    <div style="background:#060D08; padding:32px 28px; border-bottom:3px solid #00FF7A;">
+      <span style="font-size:10px; color:rgba(0,255,122,0.4); letter-spacing:0.2em; font-family:&#39;Montserrat&#39;,sans-serif; display:block; margin-bottom:8px;">10</span>
+      <p style="font-family:&#39;Space Grotesk&#39;,sans-serif; font-size:22px; font-weight:600; color:#00FF7A; margin-bottom:8px;">Bold Nature</p>
+      <p style="font-size:12px; color:rgba(255,255,255,0.35); font-family:&#39;Montserrat&#39;,sans-serif; line-height:1.6;">Дерзкий неон на тёмном. Для тех, кто устал от нежности.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:80px;">
+    <p style="font-family:&#39;Cormorant Garamond&#39;,serif; font-size:24px; font-style:italic; color:rgba(245,240,232,0.4); margin-bottom:8px;">Ольга, Андрей — какая из них вы?</p>
+    <p style="font-size:12px; color:rgba(255,255,255,0.2); font-family:&#39;Montserrat&#39;,sans-serif; letter-spacing:0.1em;">KIT · 2026 · Санкт-Петербург</p>
+  </div>
+</section>
+
+<script>
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+</script>
+
+
+</body></html>

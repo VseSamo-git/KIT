@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KIT — Editorial Noir · Визуальный брендбук</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#080808;
+    --coal:#1A1A1A;
+    --paper:#F0EDE8;
+    --rose:#C9A99A;
+    --paper-50:rgba(240,237,232,0.5);
+    --paper-30:rgba(240,237,232,0.3);
+    --paper-15:rgba(240,237,232,0.15);
+    --paper-08:rgba(240,237,232,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Space Grotesk',sans-serif;
+    background:var(--noir);
+    color:var(--paper);
+    font-weight:300;
+    line-height:1.8;
+    font-size:15px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--rose);text-decoration:none}
+
+  /* Layout */
+  section{padding:120px 8vw;min-height:100vh;border-bottom:1px solid var(--paper-08)}
+  section.short{min-height:auto}
+  .sec-label{
+    font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--rose);margin-bottom:24px;display:inline-block;
+  }
+  .sec-divider{width:24px;height:1px;background:var(--rose);margin:0 0 32px}
+  .sec-title{
+    font-weight:300;letter-spacing:-.02em;line-height:1.05;
+    font-size:clamp(40px,6vw,80px);max-width:900px;margin-bottom:32px;
+  }
+  .sec-lead{font-size:15px;color:var(--paper-50);max-width:640px;line-height:1.9}
+
+  /* Nav */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(8,8,8,.92);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--paper-08);
+    padding:18px 6vw;display:flex;align-items:center;justify-content:space-between;
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  }
+  nav .brand{font-size:14px;letter-spacing:.15em;font-weight:400}
+  nav .brand .accent{color:var(--rose)}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav a{color:var(--paper-50);transition:color .2s}
+  nav a:hover{color:var(--paper)}
+
+  /* Cover */
+  .cover{padding-top:200px}
+  .cover .word{
+    font-size:clamp(96px,18vw,260px);font-weight:300;letter-spacing:-.04em;
+    line-height:.9;
+  }
+  .cover .ghost{color:var(--paper-08)}
+  .cover .meta{display:flex;gap:48px;margin-top:64px;font-size:11px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--paper-50)}
+  .cover .meta strong{display:block;color:var(--paper);margin-top:6px;font-weight:400}
+
+  /* Palette */
+  .palette{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px}
+  .swatch{aspect-ratio:3/4;padding:24px;display:flex;flex-direction:column;justify-content:space-between;
+    border:1px solid var(--paper-08)}
+  .swatch .name{font-size:18px;letter-spacing:-.01em;font-weight:300}
+  .swatch .hex{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.55;font-weight:400}
+  .swatch .role{font-size:11px;letter-spacing:.05em;text-transform:uppercase;opacity:.55;font-weight:400}
+  .sw-noir{background:#080808;color:#F0EDE8}
+  .sw-coal{background:#1A1A1A;color:#F0EDE8}
+  .sw-paper{background:#F0EDE8;color:#080808}
+  .sw-rose{background:#C9A99A;color:#080808}
+
+  .ratio-bar{height:18px;display:flex;margin-top:48px;border:1px solid var(--paper-08)}
+  .ratio-bar div{display:flex;align-items:center;padding:0 12px;font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+
+  /* Typography */
+  .type-card{padding:48px;border:1px solid var(--paper-08);margin-top:32px}
+  .type-sample{font-size:clamp(48px,7vw,96px);letter-spacing:-.03em;font-weight:300;line-height:.95;margin-bottom:24px}
+  .type-sample.ghost{color:var(--paper-08)}
+  .type-row{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:18px 0;border-top:1px solid var(--paper-08);font-size:13px;color:var(--paper-50)}
+  .type-row:first-of-type{border-top:none}
+  .type-row strong{font-weight:400;color:var(--paper);letter-spacing:.05em;font-size:11px;text-transform:uppercase}
+
+  /* Logo */
+  .logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:32px;border:1px solid var(--paper-08)}
+  .logo-card{padding:80px 48px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:340px;border-right:1px solid var(--paper-08)}
+  .logo-card:last-child{border-right:none}
+  .logo-card.dark{background:var(--noir);color:var(--paper)}
+  .logo-card.light{background:var(--paper);color:var(--noir)}
+  .logo-mark{font-size:96px;letter-spacing:-.04em;font-weight:300;line-height:1;margin-bottom:14px}
+  .logo-line{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:400}
+  .logo-line .em{width:18px;height:1px;background:var(--rose)}
+  .logo-card.light .logo-line .em{background:var(--rose)}
+  .logo-card .role{margin-top:32px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.5}
+
+  /* IG grid mockup */
+  .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;max-width:640px;border:1px solid var(--paper-08)}
+  .ig-tile{aspect-ratio:1/1;background:var(--noir);padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .ig-tile.paper{background:var(--paper);color:var(--noir)}
+  .ig-tile.coal{background:var(--coal)}
+  .ig-tile.photo{background:linear-gradient(135deg,#2a2520 0%,#4d4035 50%,#80604a 100%);color:var(--paper)}
+  .ig-tile.photo-2{background:linear-gradient(160deg,#1a1612 0%,#3d2f24 60%,#a08570 100%);color:var(--paper)}
+  .ig-tile.photo-3{background:linear-gradient(120deg,#403228 0%,#6d5240 50%,#c9a99a 100%);color:var(--noir)}
+  .ig-tile .num{font-size:64px;line-height:.9;font-weight:300;letter-spacing:-.04em;align-self:center;margin:auto 0}
+  .ig-tile .sub{font-size:9px;letter-spacing:.25em;text-transform:uppercase;opacity:.55;text-align:center}
+  .ig-tile .quote{font-size:14px;line-height:1.35;font-weight:300;letter-spacing:-.01em}
+  .ig-tile .meta{font-size:8px;letter-spacing:.25em;text-transform:uppercase;opacity:.55}
+  .ig-tile .accent{width:18px;height:1px;background:var(--rose);margin:8px 0}
+  .ig-tile .photo-label{align-self:flex-end;font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+
+  /* Stories */
+  .stories-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;max-width:900px}
+  .story{aspect-ratio:9/16;background:var(--noir);padding:18px;border:1px solid var(--paper-08);display:flex;flex-direction:column;justify-content:space-between}
+  .story.paper{background:var(--paper);color:var(--noir);border-color:transparent}
+  .story .top{font-size:8px;letter-spacing:.25em;text-transform:uppercase;opacity:.55}
+  .story .body{font-size:14px;line-height:1.3;font-weight:300;letter-spacing:-.005em}
+  .story .acc{width:14px;height:1px;background:var(--rose);margin-top:8px}
+
+  /* CTA */
+  .cta-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:32px}
+  .btn{padding:14px 32px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;cursor:default;display:inline-flex;align-items:center;gap:10px}
+  .btn-primary{background:var(--paper);color:var(--noir)}
+  .btn-secondary{background:transparent;color:var(--paper-30);border:1px solid var(--paper-15)}
+  .btn-link{color:var(--rose);font-weight:400;letter-spacing:.05em;text-transform:none;font-size:13px;border-bottom:1px solid var(--rose);padding:0 0 2px}
+
+  /* Forbidden */
+  .red-table{width:100%;border-collapse:collapse;margin-top:32px}
+  .red-table th,.red-table td{padding:18px 0;text-align:left;border-bottom:1px solid var(--paper-08);font-size:13px;font-weight:300}
+  .red-table th{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);font-weight:400;padding-bottom:14px}
+  .red-table td:first-child{color:var(--paper-50);width:46%;padding-right:32px}
+
+  /* Footer */
+  footer{padding:80px 8vw;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-30);display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+  footer .em{width:18px;height:1px;background:var(--rose);display:inline-block;vertical-align:middle;margin:0 12px}
+
+  @media (max-width:760px){
+    section{padding:80px 6vw}
+    nav ul{display:none}
+    .palette{grid-template-columns:repeat(2,1fr)}
+    .logo-grid{grid-template-columns:1fr}
+    .logo-card{border-right:none;border-bottom:1px solid var(--paper-08)}
+    .stories-row{grid-template-columns:repeat(2,1fr)}
+    .ratio-bar div{font-size:8px;padding:0 6px}
+    .type-row{grid-template-columns:1fr;gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">KIT<span class="em" style="display:inline-block;width:14px;height:1px;background:var(--rose);margin:0 10px;vertical-align:middle"></span><span class="accent">Editorial Noir</span></div>
+  <ul>
+    <li><a href="#palette">Палитра</a></li>
+    <li><a href="#type">Типографика</a></li>
+    <li><a href="#logo">Логотип</a></li>
+    <li><a href="#grid">Сетка</a></li>
+    <li><a href="#stories">Сторис</a></li>
+    <li><a href="#cta">CTA</a></li>
+    <li><a href="#no">Запреты</a></li>
+  </ul>
+</nav>
+
+<!-- Cover -->
+<section class="cover" id="cover">
+  <span class="sec-label">Концепция 05 · на согласовании · май 2026</span>
+  <div class="word">KIT</div>
+  <div class="word ghost">DECOR</div>
+  <p class="sec-lead" style="margin-top:48px;max-width:520px">
+    Чёрный. Белый. Один акцент. Безупречная типографика. Самый дерзкий и редакционный вариант — обложка журнала, а не каталог декора.
+  </p>
+  <div class="meta">
+    <div>Палитра<strong>4 цвета</strong></div>
+    <div>Шрифт<strong>Space Grotesk</strong></div>
+    <div>Акцент<strong>Dusty Rose</strong></div>
+    <div>Применение<strong>IG · VK · TG · Site · Print</strong></div>
+  </div>
+</section>
+
+<!-- Palette -->
+<section id="palette">
+  <span class="sec-label">01 — Цветовая палитра</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Четыре цвета.<br>Больше не вводим.</h2>
+  <p class="sec-lead">Noir держит 70% площади. Paper даёт контраст и читаемость. Dusty Rose — единственный акцент, точечный. Coal — служебный фон для карточек.</p>
+
+  <div class="palette">
+    <div class="swatch sw-noir">
+      <div>
+        <div class="role">Основной фон</div>
+        <div class="name" style="margin-top:8px">Noir</div>
+      </div>
+      <div class="hex">#080808</div>
+    </div>
+    <div class="swatch sw-coal">
+      <div>
+        <div class="role">Вторичный фон</div>
+        <div class="name" style="margin-top:8px">Coal</div>
+      </div>
+      <div class="hex">#1A1A1A</div>
+    </div>
+    <div class="swatch sw-paper">
+      <div>
+        <div class="role" style="opacity:.6">Основной текст / светлый фон</div>
+        <div class="name" style="margin-top:8px">Paper</div>
+      </div>
+      <div class="hex">#F0EDE8</div>
+    </div>
+    <div class="swatch sw-rose">
+      <div>
+        <div class="role" style="opacity:.7">Единственный акцент</div>
+        <div class="name" style="margin-top:8px">Dusty Rose</div>
+      </div>
+      <div class="hex">#C9A99A</div>
+    </div>
+  </div>
+
+  <div class="ratio-bar">
+    <div style="background:var(--noir);color:var(--paper);flex:70">Noir · 70%</div>
+    <div style="background:var(--paper);color:var(--noir);flex:25">Paper · 25%</div>
+    <div style="background:var(--rose);color:var(--noir);flex:5">Rose · 5%</div>
+  </div>
+</section>
+
+<!-- Typography -->
+<section id="type">
+  <span class="sec-label">02 — Типографика</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Один шрифт.<br>Без исключений.</h2>
+  <p class="sec-lead">Space Grotesk — единственный шрифт системы. Geometric sans с характером. Light 300 — почти весь текст. Иерархия строится не размером и весом, а letter-spacing и контрастом цветов.</p>
+
+  <div class="type-card">
+    <div class="type-sample">KIT</div>
+    <div class="type-sample ghost" style="margin-bottom:48px">DECOR</div>
+
+    <div class="type-row"><strong>Hero / лого</strong><span>Space Grotesk Light 300 · 64–96pt · letter-spacing -0.03em</span></div>
+    <div class="type-row"><strong>H1</strong><span>Light 300 · 40–56pt · letter-spacing -0.02em</span></div>
+    <div class="type-row"><strong>H2</strong><span>Light 300 · 28–36pt · letter-spacing -0.02em</span></div>
+    <div class="type-row"><strong>Body</strong><span>Light 300 · 14–16pt · line-height 1.8</span></div>
+    <div class="type-row"><strong>Label / caption</strong><span>Regular 400 · 10–11pt · letter-spacing 0.2em · UPPERCASE</span></div>
+    <div class="type-row"><strong>CTA</strong><span>Medium 500 · 11pt · letter-spacing 0.1em · UPPERCASE</span></div>
+  </div>
+</section>
+
+<!-- Logo -->
+<section id="logo">
+  <span class="sec-label">03 — Логотип</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Вордмарк.<br>Em-dash.<br>Подпись.</h2>
+  <p class="sec-lead">Без иконографики. Тип-знак KIT + em-dash в Dusty Rose + uppercase-подпись «DECOR · САНКТ-ПЕТЕРБУРГ». Три цветовых варианта — больше не делаем.</p>
+
+  <div class="logo-grid">
+    <div class="logo-card dark">
+      <div class="logo-mark">KIT</div>
+      <div class="logo-line"><span class="em"></span>DECOR · САНКТ-ПЕТЕРБУРГ</div>
+      <div class="role">Primary · Paper-on-Noir</div>
+    </div>
+    <div class="logo-card light">
+      <div class="logo-mark">KIT</div>
+      <div class="logo-line"><span class="em"></span>DECOR · САНКТ-ПЕТЕРБУРГ</div>
+      <div class="role">Inverse · Noir-on-Paper</div>
+    </div>
+  </div>
+
+  <div class="logo-grid" style="margin-top:0;border-top:none">
+    <div class="logo-card dark">
+      <div class="logo-mark">KIT</div>
+      <div class="role">Mono · favicon · stories</div>
+    </div>
+    <div class="logo-card dark" style="background:var(--coal)">
+      <div style="display:flex;align-items:flex-start;gap:32px;flex-wrap:wrap;justify-content:center">
+        <div>
+          <div class="logo-mark" style="font-size:48px">KIT</div>
+          <div class="logo-line" style="margin-top:8px;justify-content:center"><span class="em"></span>DECOR</div>
+        </div>
+        <div style="text-align:left;max-width:200px;border-left:1px solid var(--paper-08);padding-left:24px">
+          <div style="font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);margin-bottom:8px">Сигна</div>
+          <div style="font-size:11px;color:var(--paper-50);line-height:1.7">e-mail-подпись<br>визитки<br>watermark</div>
+        </div>
+      </div>
+      <div class="role">Compact · подпись + лок</div>
+    </div>
+  </div>
+</section>
+
+<!-- IG grid -->
+<section id="grid">
+  <span class="sec-label">04 — Instagram-сетка</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Лента читается<br>как разворот журнала.</h2>
+  <p class="sec-lead">Ритм 3×3: Noir-карточки (типографика и цифры) чередуются с фото. Никаких градиентов в постах, никаких квадратиков с эмодзи. Фото публикуем без оверлеев — текст идёт отдельной карточкой.</p>
+
+  <div class="ig-grid">
+    <div class="ig-tile">
+      <div class="meta">20.06 · ПТИЧКИ И ЯГОДЫ</div>
+      <div class="quote">Свадьба у воды.<br>Эвкалипт, пионы, тишина.</div>
+      <div class="accent"></div>
+    </div>
+    <div class="ig-tile photo">
+      <div class="meta">FLORA</div>
+      <div class="photo-label">04.04 · MEZE</div>
+    </div>
+    <div class="ig-tile">
+      <div class="meta">150</div>
+      <div class="num">5</div>
+      <div class="sub">лет · 150 событий</div>
+    </div>
+
+    <div class="ig-tile photo-2">
+      <div class="meta">ARCH</div>
+      <div class="photo-label">РЕПИНО</div>
+    </div>
+    <div class="ig-tile coal">
+      <div class="meta">ЦИТАТА</div>
+      <div class="quote">«Не как у всех» — это и есть наша работа.</div>
+      <div class="accent"></div>
+    </div>
+    <div class="ig-tile photo-3">
+      <div class="meta" style="color:rgba(8,8,8,.55)">DETAIL</div>
+      <div class="photo-label">FLORA · РАНУНКУЛЮС</div>
+    </div>
+
+    <div class="ig-tile">
+      <div class="meta">06:00</div>
+      <div class="num">06:00</div>
+      <div class="sub">утра на площадке</div>
+    </div>
+    <div class="ig-tile photo">
+      <div class="meta">CASE</div>
+      <div class="photo-label">КОРПОРАТИВ · Q1</div>
+    </div>
+    <div class="ig-tile paper">
+      <div class="meta" style="color:rgba(8,8,8,.55)">BTS</div>
+      <div class="quote" style="color:var(--noir)">Каждая работа — это мы, лично.</div>
+      <div class="accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Stories -->
+<section id="stories" class="short">
+  <span class="sec-label">05 — Сторис и Reels-обложки</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Шаблон<br>9:16.</h2>
+  <p class="sec-lead">Носители вертикальные, верхняя или нижняя треть — текст, центр — фото или цифра. Никаких больших стикеров. Один Dusty Rose-stroke под заголовком.</p>
+
+  <div class="stories-row">
+    <div class="story">
+      <div>
+        <div class="top">04.04 · MEZE</div>
+        <div class="acc"></div>
+      </div>
+      <div class="body">Свадьба про лёгкость и лимоны 🍋</div>
+    </div>
+    <div class="story">
+      <div>
+        <div class="top">DAY · 07:00</div>
+        <div class="acc"></div>
+      </div>
+      <div class="body">Кофе, маршрут и чек-лист дня.</div>
+    </div>
+    <div class="story">
+      <div>
+        <div class="top">QUOTE</div>
+        <div class="acc"></div>
+      </div>
+      <div class="body" style="font-size:18px;letter-spacing:-.01em">«За каждым красивым оформлением всегда стоят люди.»</div>
+    </div>
+    <div class="story paper">
+      <div>
+        <div class="top" style="color:rgba(8,8,8,.55)">REELS · CASE</div>
+        <div class="acc"></div>
+      </div>
+      <div class="body" style="color:var(--noir)">Тайм-лапс монтажа.<br>30 секунд.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="short">
+  <span class="sec-label">06 — Кнопки и ссылки</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Прямые<br>углы.</h2>
+  <p class="sec-lead">Никаких капсул. Никаких теней. Primary — paper-on-noir, uppercase. Secondary — рамка. Inline — Dusty Rose с тонким подчёркиванием.</p>
+
+  <div class="cta-row">
+    <span class="btn btn-primary">Написать</span>
+    <span class="btn btn-secondary">Портфолио</span>
+    <span class="btn-link">обсудить идею</span>
+  </div>
+</section>
+
+<!-- Forbidden -->
+<section id="no">
+  <span class="sec-label">07 — Красные линии</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Чего мы не делаем.</h2>
+
+  <table class="red-table">
+    <tr><th>Запрещено</th><th>Вместо этого</th></tr>
+    <tr><td>Ivory / Sage / Bronze (старая палитра)</td><td>Только Noir / Paper / Dusty Rose</td></tr>
+    <tr><td>Cormorant Garamond, Montserrat, Playfair</td><td>Только Space Grotesk</td></tr>
+    <tr><td>Курсив в теле текста</td><td>Light 300 без наклона</td></tr>
+    <tr><td>Градиенты</td><td>Сплошной цвет</td></tr>
+    <tr><td>Скруглённые «капсульные» кнопки</td><td>Прямые углы, max 4px на медиа</td></tr>
+    <tr><td>Второй акцентный цвет</td><td>Один — Dusty Rose</td></tr>
+    <tr><td>Эмодзи в логотипе и CTA</td><td>Текстом или линиями</td></tr>
+    <tr><td>HDR и стилизованные пресеты Lightroom</td><td>Натуральная обработка, тёплая температура</td></tr>
+    <tr><td>Чёрно-белая обработка фото с цветами</td><td>Цветы — только в цвете</td></tr>
+    <tr><td>Логотип на пёстром фото без подложки</td><td>Подложка Noir 60%+</td></tr>
+  </table>
+</section>
+
+<footer>
+  <div>KIT<span class="em"></span>Editorial Noir<span class="em"></span>На согласовании · май 2026</div>
+  <div>v0.1 · /02_brand/BRANDBOOK_VISUAL.html</div>
+</footer>
+
+</body>
+</html>
