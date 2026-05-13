@@ -41,7 +41,7 @@
 
 - **Знак:** `kit-mark.svg` в этой папке.
 - **КИТ:** Space Grotesk Light 300, letter-spacing 0.15em.
-- **«декор»:** Caveat Regular (Google Fonts) — приближённый аналог рукописного начертания.
+- **«декор»:** Space Grotesk Light Italic (300 italic), letter-spacing 0.04em, строчные. Никаких script-шрифтов — система целиком на Space Grotesk.
 - **ДЕКОР НА МЕРОПРИЯТИЯ:** Space Grotesk Regular 400, letter-spacing 0.25em, uppercase.
 
 ## Брендбук
