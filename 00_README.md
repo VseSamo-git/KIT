@@ -45,34 +45,40 @@
 
 ## Этапы перезапуска
 
-**Этап 1 · Бренд** (текущий)
+**Этап 1 · Бренд** ✅ ЗАВЕРШЁН
 - [x] Реорганизация репозитория
 - [x] Brand Book переписан под Editorial Noir
 - [x] Визуальный брендбук HTML
-- [ ] Согласование Ольгой и Андреем
+- [x] Реальный логотип `02_brand/logo/kit-logo.jpg` интегрирован
+- [x] Шрифты согласованы: Tenor Sans + Marck Script + Space Grotesk
 
-**Этап 2 · Голос**
-- [ ] Разложить 4 реальных поста Ольги в `03_voice/voice_samples/`
-- [ ] Обновить 05_TONE_OF_VOICE.md на основе реальных постов
-- [ ] Удалить эмодзи-правила, конфликтующие с практикой (Ольга использует ✨🍋🤍)
-- [ ] Свести «архетип» и реальный голос воедино
+**Этап 2 · Голос** ✅ ЗАВЕРШЁН
+- [x] 5 эталонных постов Ольги в `03_voice/voice_samples/`
+- [x] 05_TONE_OF_VOICE.md v2.0 на основе реальных постов
+- [x] Удалены конфликтующие правила про эмодзи и присутствие на каждом мероприятии
 
-**Этап 3 · Фабрика контента**
-- [x] `06_pipeline/CONTENT_FACTORY_VISUAL.html` — визуальная презентация системы
-- [x] `06_pipeline/CONTENT_LOGIC.md` — канонические решения по логике трёх потоков
-- [x] `04_content_ops/SOCIAL_ACCOUNTS.md` — список платформ и API
-- [ ] `04_content_ops/nocodb_schema.md` — таблицы `ideas`, `content_calendar`, `monthly_plans`, `trend_alerts`, `events`, `leads`, `metrics`, `voice_samples`
-- [ ] `04_content_ops/n8n_workflows.md` — список workflow с триггерами
-- [ ] `04_content_ops/claude_prompts/` — системные промпты для агентов
-- [ ] `06_pipeline/agents.md` — какие агенты Claude нужны, их роли и взаимосвязи
-- [ ] `06_pipeline/skills.md` — кастомные КИТ-скиллы (для Claude Code)
-- [ ] Обновление 08_SOP под NocoDB
+**Этап 3 · Подготовка к фабрике** ✅ ЗАВЕРШЁН
+- [x] `06_pipeline/CONTENT_FACTORY_VISUAL.html` — визуальная презентация
+- [x] `06_pipeline/CONTENT_LOGIC.md` — каноническая логика трёх потоков
+- [x] `06_pipeline/ROADMAP.md` — 7-фазовый план запуска
+- [x] `04_content_ops/SOCIAL_ACCOUNTS.md` — 8 платформ с логинами
+- [x] `02_brand/SOCIAL_VISUALS_SPEC.md` — спецификация ассетов
+- [x] **21 PNG для всех платформ** в `02_brand/assets_export/`
+- [x] Render-пайплайн (Playwright + локальные шрифты) в `02_brand/templates/`
+- [x] **`02_brand/HOW_TO_SETUP_SOCIALS.md`** — инструкция Оле
 
-**Этап 4 · Запуск**
-- [ ] Развернуть NocoDB + n8n на VPS
-- [ ] Подключить API: Instagram, VK, Telegram, Claude
-- [ ] Привести IG/VK/TG-шапки под Editorial Noir
-- [ ] Первый пост «Мы обновились — встречайте КИТ»
+**Этап 4 · Инфраструктура** ⏳ СЛЕДУЮЩАЯ СЕССИЯ
+- [ ] VPS + NocoDB + n8n (docker-compose)
+- [ ] Подключить API: Claude, Kie.ai, IG Graph, VK, TG Bot, Pinterest, Apify, Tavily
+- [ ] Создать таблицы NocoDB по схеме
+- [ ] `04_content_ops/nocodb_schema.md`
+
+**Этап 5 · Агенты и запуск** ⏳ СЛЕДУЮЩАЯ СЕССИЯ
+- [ ] `04_content_ops/claude_prompts/` — промпты для 12 агентов
+- [ ] n8n workflows
+- [ ] Первый авто-пост «Мы обновились — встречайте КИТ»
+
+**Полное резюме сделанного:** `PROJECT_SUMMARY.md`
 
 ---
 
