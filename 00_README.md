@@ -58,7 +58,10 @@
 - [ ] Свести «архетип» и реальный голос воедино
 
 **Этап 3 · Фабрика контента**
-- [ ] `04_content_ops/nocodb_schema.md` — таблицы `content_calendar`, `events`, `leads`, `voice_samples`, `metrics`
+- [x] `06_pipeline/CONTENT_FACTORY_VISUAL.html` — визуальная презентация системы
+- [x] `06_pipeline/CONTENT_LOGIC.md` — канонические решения по логике трёх потоков
+- [x] `04_content_ops/SOCIAL_ACCOUNTS.md` — список платформ и API
+- [ ] `04_content_ops/nocodb_schema.md` — таблицы `ideas`, `content_calendar`, `monthly_plans`, `trend_alerts`, `events`, `leads`, `metrics`, `voice_samples`
 - [ ] `04_content_ops/n8n_workflows.md` — список workflow с триггерами
 - [ ] `04_content_ops/claude_prompts/` — системные промпты для агентов
 - [ ] `06_pipeline/agents.md` — какие агенты Claude нужны, их роли и взаимосвязи
