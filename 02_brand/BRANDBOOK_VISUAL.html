@@ -121,6 +121,36 @@
   /* role label */
   .logo-card .role{margin-top:36px;font-size:9px;letter-spacing:.25em;text-transform:uppercase;opacity:.45;font-weight:400}
 
+  /* Voice section */
+  .voice-pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:32px;background:var(--paper-08);border:1px solid var(--paper-08)}
+  .v-pill{background:var(--noir);padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:200px}
+  .v-pill .n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:300;letter-spacing:-.02em;color:var(--rose);line-height:1}
+  .v-pill .t{font-size:14px;font-weight:300;letter-spacing:-.005em;color:var(--paper);line-height:1.3}
+  .v-pill .d{font-size:12px;color:var(--paper-50);line-height:1.7;flex-grow:1}
+  .v-pill .ex{font-size:11px;color:var(--paper-30);line-height:1.5;border-top:1px solid var(--paper-08);padding-top:10px;font-style:italic}
+
+  .voice-samples{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;background:var(--paper-08)}
+  .sample{background:var(--coal);padding:32px;display:flex;flex-direction:column;gap:18px;min-height:340px}
+  .sample .meta{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);font-weight:400}
+  .sample .body{font-size:13px;line-height:1.8;color:var(--paper);font-weight:300;flex-grow:1}
+  .sample .body em{font-style:italic;color:var(--paper-50)}
+  .sample .pattern{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper-30);border-top:1px solid var(--paper-08);padding-top:14px;line-height:1.7}
+  .sample .pattern strong{color:var(--rose);font-weight:400}
+
+  .voice-refs{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:32px;background:var(--paper-08)}
+  .ref{background:var(--noir);padding:24px 28px;display:flex;gap:18px;align-items:flex-start;min-height:120px}
+  .ref .num{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:300;color:var(--rose);letter-spacing:-.02em;flex-shrink:0;width:30px}
+  .ref .body{font-size:13px;color:var(--paper);line-height:1.6;font-weight:300}
+  .ref .body em{color:var(--paper-50);font-style:italic;font-size:12px;display:block;margin-top:4px}
+
+  .voice-do-dont{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:32px;background:var(--paper-08)}
+  .dd-col{background:var(--noir);padding:32px}
+  .dd-col h4{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;font-weight:400}
+  .dd-col.bad h4{color:var(--paper-30)}
+  .dd-row{padding:10px 0;border-bottom:1px solid var(--paper-08);font-size:13px;color:var(--paper);line-height:1.55}
+  .dd-row:last-child{border-bottom:none}
+  .dd-col.bad .dd-row{color:var(--paper-30);text-decoration:line-through;text-decoration-color:rgba(201,169,154,.4)}
+
   /* IG grid mockup */
   .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:32px;max-width:640px;border:1px solid var(--paper-08)}
   .ig-tile{aspect-ratio:1/1;background:var(--noir);padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
@@ -161,6 +191,12 @@
   footer{padding:80px 8vw;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-30);display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
   footer .em{width:18px;height:1px;background:var(--rose);display:inline-block;vertical-align:middle;margin:0 12px}
 
+  @media (max-width:980px){
+    .voice-pillars{grid-template-columns:repeat(2,1fr)}
+    .voice-samples{grid-template-columns:1fr}
+    .voice-refs{grid-template-columns:1fr}
+    .voice-do-dont{grid-template-columns:1fr}
+  }
   @media (max-width:760px){
     section{padding:80px 6vw}
     nav ul{display:none}
@@ -170,6 +206,7 @@
     .stories-row{grid-template-columns:repeat(2,1fr)}
     .ratio-bar div{font-size:8px;padding:0 6px}
     .type-row{grid-template-columns:1fr;gap:6px}
+    .voice-pillars{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -181,6 +218,7 @@
     <li><a href="#palette">Палитра</a></li>
     <li><a href="#type">Типографика</a></li>
     <li><a href="#logo">Логотип</a></li>
+    <li><a href="#voice">Голос</a></li>
     <li><a href="#grid">Сетка</a></li>
     <li><a href="#stories">Сторис</a></li>
     <li><a href="#cta">CTA</a></li>
@@ -280,12 +318,12 @@
     <div class="logo-card dark">
       <div class="lockup">
         <span class="mark">
-          <svg viewBox="0 0 80 64" aria-label="КИТ — хвост кита">
-            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
-            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
-            <path d="M 40 30 L 40 42"/>
-            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
-            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          <svg viewBox="0 0 96 80" aria-label="КИТ — хвост кита">
+            <path d="M 48 38 C 36 38, 22 30, 18 14 C 22 6, 34 8, 42 18 C 47 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 C 60 38, 74 30, 78 14 C 74 6, 62 8, 54 18 C 49 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 L 48 52"/>
+            <path d="M 10 64 Q 26 56, 48 64 T 86 62"/>
+            <path d="M 18 74 Q 32 68, 48 74 T 78 72"/>
           </svg>
         </span>
         <span class="wordmark">КИТ</span>
@@ -297,12 +335,12 @@
     <div class="logo-card light">
       <div class="lockup">
         <span class="mark">
-          <svg viewBox="0 0 80 64">
-            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
-            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
-            <path d="M 40 30 L 40 42"/>
-            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
-            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          <svg viewBox="0 0 96 80">
+            <path d="M 48 38 C 36 38, 22 30, 18 14 C 22 6, 34 8, 42 18 C 47 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 C 60 38, 74 30, 78 14 C 74 6, 62 8, 54 18 C 49 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 L 48 52"/>
+            <path d="M 10 64 Q 26 56, 48 64 T 86 62"/>
+            <path d="M 18 74 Q 32 68, 48 74 T 78 72"/>
           </svg>
         </span>
         <span class="wordmark">КИТ</span>
@@ -317,12 +355,12 @@
     <div class="logo-card dark">
       <div class="lockup-compact">
         <span class="mark">
-          <svg viewBox="0 0 80 64">
-            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
-            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
-            <path d="M 40 30 L 40 42"/>
-            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
-            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          <svg viewBox="0 0 96 80">
+            <path d="M 48 38 C 36 38, 22 30, 18 14 C 22 6, 34 8, 42 18 C 47 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 C 60 38, 74 30, 78 14 C 74 6, 62 8, 54 18 C 49 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 L 48 52"/>
+            <path d="M 10 64 Q 26 56, 48 64 T 86 62"/>
+            <path d="M 18 74 Q 32 68, 48 74 T 78 72"/>
           </svg>
         </span>
         <span class="wordmark">КИТ</span>
@@ -333,12 +371,12 @@
     <div class="logo-card dark" style="background:var(--coal)">
       <div style="display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center">
         <div class="lockup-mark">
-          <svg viewBox="0 0 80 64">
-            <path d="M 40 30 C 27 30, 16 17, 22 6 C 30 2, 38 14, 40 30 Z"/>
-            <path d="M 40 30 C 53 30, 64 17, 58 6 C 50 2, 42 14, 40 30 Z"/>
-            <path d="M 40 30 L 40 42"/>
-            <path d="M 10 52 Q 25 45, 40 52 T 70 50"/>
-            <path d="M 18 60 Q 30 55, 42 60 T 64 58"/>
+          <svg viewBox="0 0 96 80">
+            <path d="M 48 38 C 36 38, 22 30, 18 14 C 22 6, 34 8, 42 18 C 47 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 C 60 38, 74 30, 78 14 C 74 6, 62 8, 54 18 C 49 25, 48 32, 48 38 Z"/>
+            <path d="M 48 38 L 48 52"/>
+            <path d="M 10 64 Q 26 56, 48 64 T 86 62"/>
+            <path d="M 18 74 Q 32 68, 48 74 T 78 72"/>
           </svg>
         </div>
         <div style="width:1px;height:60px;background:var(--paper-08)"></div>
@@ -353,9 +391,116 @@
   </p>
 </section>
 
+<!-- Voice -->
+<section id="voice">
+  <span class="sec-label">04 — Голос бренда</span>
+  <div class="sec-divider"></div>
+  <h2 class="sec-title">Голос KIT —<br>это голос <em>Оли</em>.</h2>
+  <p class="sec-lead">Мы не выдумываем тон с нуля. Извлекаем из того, что Оля уже пишет в <code style="color:var(--rose);font-family:monospace">@kitwedding</code>. Пять реальных постов в <code style="color:var(--rose);font-family:monospace">03_voice/voice_samples/</code> — корпус, на котором тренируются все агенты. Если можно так писать или нет — сравниваем с эталоном, а не с правилом.</p>
+
+  <!-- 5 столпов -->
+  <div class="voice-pillars">
+    <div class="v-pill">
+      <div class="n">01</div>
+      <div class="t">Сенсорика</div>
+      <div class="d">Описываем ощущения, не предметы. «Лёгкость», «воздух», «непринуждённая элегантность» — а не «премиум-флористика».</div>
+      <div class="ex">«Получилась свежая, атмосферная история с лёгким ощущением сада»</div>
+    </div>
+    <div class="v-pill">
+      <div class="n">02</div>
+      <div class="t">Конкретика</div>
+      <div class="d">Имена сортов, точное время, числа. «Лизиантус Rosita махровый» вместо «разные цветы».</div>
+      <div class="ex">«07:00–08:00 — кофе, маршрут и чек-лист»</div>
+    </div>
+    <div class="v-pill">
+      <div class="n">03</div>
+      <div class="t">Уязвимость</div>
+      <div class="d">Признаём, что волнуемся. «Дрожали руки», «мысленно проходим день шаг за шагом». То, чего нет ни у одного конкурента.</div>
+      <div class="ex">«Волнуемся перед монтажом, продумываем каждую мелочь»</div>
+    </div>
+    <div class="v-pill">
+      <div class="n">04</div>
+      <div class="t">Разговор с другом</div>
+      <div class="d">«Наверное…», «ребята хотели…», «то самое настроение». Никакого «уважаемые клиенты» и «направьте бриф».</div>
+      <div class="ex">«Ребята хотели лёгкую свадьбу без вычурности»</div>
+    </div>
+    <div class="v-pill">
+      <div class="n">05</div>
+      <div class="t">Финал — эмоция</div>
+      <div class="d">Не «закажите». Либо ощущение, либо вовлечение через вопрос. И 🤍 в конце как фирменная точка.</div>
+      <div class="ex">«Хотели бы увидеть мини-влог в одном из следующих проектов?»</div>
+    </div>
+  </div>
+
+  <!-- Эталонные образцы -->
+  <div class="sec-header" style="margin-top:80px;margin-bottom:0">
+    <span class="sec-label">Три эталонных образца</span>
+  </div>
+  <p class="sec-lead" style="margin-top:18px">Из 5 постов корпуса — три, на которые опирается Copywriter-агент.</p>
+
+  <div class="voice-samples">
+    <div class="sample">
+      <div class="meta">A · Кейс-флористика<br>04.04 · Meze</div>
+      <div class="body">«Цветочный состав свадьбы 04.04 в Meze 🤍🍐🍏<br><br>Для этого оформления мы выбрали свежую, деликатную и при этом выразительную флористику в бело-зелёной гамме.<br><br>В композициях использовали:<br>— белую гвоздику<br>— хризантему делигрин<br>— лизиантус Rosita махровый<br>— статицу<br>— гвоздику барбатус Kiwi Mellow<br>— леувенбек<br>— амарант<br><br>Получилась очень свежая, современная и атмосферная история — с лёгким ощущением сада, весны и эстетики в деталях.»</div>
+      <div class="pattern"><strong>Паттерн:</strong> Зацепка с датой → описание решения → перечисление через тире → финал-ощущение</div>
+    </div>
+
+    <div class="sample">
+      <div class="meta">C · Философия<br>25 марта · «За каждым красивым…»</div>
+      <div class="body">«За каждым красивым оформлением, за каждой картой рассадки, за каждой деталью свадебного дня для нас всегда стоят люди.<br><br>Кто-то очень спокойный и собранный, кто-то трепетный и чувствительный. Кто-то точно знает, чего хочет, а кто-то только ищет "то самое" настроение своего дня.<br><br>Мы правда очень переживаем за каждую пару. Волнуемся перед монтажом, мысленно проходим весь день шаг за шагом, потому что для нас это никогда не бывает "просто ещё одна свадьба".<br><br>Каждая история остаётся с нами 🤍»</div>
+      <div class="pattern"><strong>Паттерн:</strong> Тезис → анафора «кто-то…» → уязвимость → финал + 🤍</div>
+    </div>
+
+    <div class="sample">
+      <div class="meta">D · BTS-таймлайн<br>День из жизни декоратора</div>
+      <div class="body">«Как выглядит реальный день свадебного декоратора в сезон?<br><br><strong>07:00–08:00</strong> — кофе, маршрут и чек-лист дня.<br><strong>08:00–09:00</strong> — мастерская, вёдра с цветами и коробки.<br><strong>10:00–14:00</strong> — монтаж на площадке.<br><strong>14:00–15:00</strong> — ювелирная часть: салфетки, карточки, свечи. Свадьба превращается в цельную картинку.<br><strong>15:00–15:30</strong> — финальный зал за 30 минут до гостей. Любимый момент дня.<br><br>Хотели бы увидеть мини-влог в следующем проекте?»</div>
+      <div class="pattern"><strong>Паттерн:</strong> Вопрос-зацепка → таймлайн с часами → любимый момент → CTA-вовлечение</div>
+    </div>
+  </div>
+
+  <!-- Что Оля сказала про референсы -->
+  <div class="sec-header" style="margin-top:80px;margin-bottom:0">
+    <span class="sec-label">Что Оля сама отметила у конкурентов</span>
+  </div>
+  <p class="sec-lead" style="margin-top:18px">Из её собственных заметок 12.05.2026. Все 5 принципов превратились в столпы выше.</p>
+
+  <div class="voice-refs">
+    <div class="ref"><div class="num">01</div><div class="body">Минималистичность и перекликающиеся цветовые акценты картинок между собой <em>— взяли в визуальную систему</em></div></div>
+    <div class="ref"><div class="num">02</div><div class="body">Неожиданные элементы — «невеста с гусем» у <code style="color:var(--rose);font-family:monospace">@thefair.ru</code> <em>— берём как разрешение на нестандартность</em></div></div>
+    <div class="ref"><div class="num">03</div><div class="body">Текст короткий, разделён на блоки, минимум смайликов (одно белое сердечко) у <code style="color:var(--rose);font-family:monospace">@feerichi</code> <em>— столп 03, фирменная 🤍 в конце</em></div></div>
+    <div class="ref"><div class="num">04</div><div class="body">Простой язык, без формальностей и пафоса — «как с другом» <em>— столп 04</em></div></div>
+    <div class="ref"><div class="num">05</div><div class="body">Музыка в Reels с особым вайбом — отдельная задача для Visual Director <em>— записано в трендвотчинг и Visual Director brief</em></div></div>
+    <div class="ref"><div class="num">—</div><div class="body" style="color:var(--paper-50)">Полный TOV с шаблонами и проверочным чек-листом для Brand Guard агента — в <code style="color:var(--rose);font-family:monospace">03_voice/05_TONE_OF_VOICE.md</code></div></div>
+  </div>
+
+  <!-- Do / Don't -->
+  <div class="sec-header" style="margin-top:80px;margin-bottom:0">
+    <span class="sec-label">Так пишем · так не пишем</span>
+  </div>
+
+  <div class="voice-do-dont">
+    <div class="dd-col">
+      <h4>✓ Как Оля</h4>
+      <div class="dd-row">«Ольга провела 2 часа на рынке, выбирая именно эти пионы»</div>
+      <div class="dd-row">«5:30 утра. Репино. Арка из 400 веток гортензии»</div>
+      <div class="dd-row">«Ребята хотели лёгкую, романтичную свадьбу без вычурности»</div>
+      <div class="dd-row">«Волнуемся перед монтажом, проходим день шаг за шагом»</div>
+      <div class="dd-row">«Хотели бы увидеть мини-влог в следующем проекте?»</div>
+    </div>
+    <div class="dd-col bad">
+      <h4>✕ Никогда</h4>
+      <div class="dd-row">«Наша команда профессионалов с любовью создаёт незабываемые моменты»</div>
+      <div class="dd-row">«Мы прибываем заблаговременно для подготовки к мероприятию»</div>
+      <div class="dd-row">«В соответствии с предоставленным техническим заданием…»</div>
+      <div class="dd-row">«Уникальное оформление премиум-класса»</div>
+      <div class="dd-row">«Обратитесь за коммерческим предложением 🔥»</div>
+    </div>
+  </div>
+</section>
+
 <!-- IG grid -->
 <section id="grid">
-  <span class="sec-label">04 — Instagram-сетка</span>
+  <span class="sec-label">05 — Instagram-сетка</span>
   <div class="sec-divider"></div>
   <h2 class="sec-title">Лента читается<br>как разворот журнала.</h2>
   <p class="sec-lead">Ритм 3×3: Noir-карточки (типографика и цифры) чередуются с фото. Никаких градиентов в постах, никаких квадратиков с эмодзи. Фото публикуем без оверлеев — текст идёт отдельной карточкой.</p>
@@ -409,7 +554,7 @@
 
 <!-- Stories -->
 <section id="stories" class="short">
-  <span class="sec-label">05 — Сторис и Reels-обложки</span>
+  <span class="sec-label">06 — Сторис и Reels-обложки</span>
   <div class="sec-divider"></div>
   <h2 class="sec-title">Шаблон<br>9:16.</h2>
   <p class="sec-lead">Носители вертикальные, верхняя или нижняя треть — текст, центр — фото или цифра. Никаких больших стикеров. Один Dusty Rose-stroke под заголовком.</p>
@@ -448,7 +593,7 @@
 
 <!-- CTA -->
 <section id="cta" class="short">
-  <span class="sec-label">06 — Кнопки и ссылки</span>
+  <span class="sec-label">07 — Кнопки и ссылки</span>
   <div class="sec-divider"></div>
   <h2 class="sec-title">Прямые<br>углы.</h2>
   <p class="sec-lead">Никаких капсул. Никаких теней. Primary — paper-on-noir, uppercase. Secondary — рамка. Inline — Dusty Rose с тонким подчёркиванием.</p>
@@ -462,7 +607,7 @@
 
 <!-- Forbidden -->
 <section id="no">
-  <span class="sec-label">07 — Красные линии</span>
+  <span class="sec-label">08 — Красные линии</span>
   <div class="sec-divider"></div>
   <h2 class="sec-title">Чего мы не делаем.</h2>
 
