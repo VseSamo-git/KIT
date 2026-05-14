@@ -1,0 +1,9 @@
+font_00.woff2 8740 https://fonts.gstatic.com/s/marckscript/v22/nwpTtK2oNgBA3Or78gapdwuyxig_WMM.woff2
+font_01.woff2 13352 https://fonts.gstatic.com/s/marckscript/v22/nwpTtK2oNgBA3Or78gapdwuyyCg_.woff2
+font_02.woff2 10528 https://fonts.gstatic.com/s/marckscript/v22/nwpTtK2oNgBA3Or78gapdwuyzCg_WMM.woff2
+font_03.woff2 6712 https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPb54C-s0.woff2
+font_04.woff2 18940 https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPb94C-s0.woff2
+font_05.woff2 22288 https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4Cw.woff2
+font_06.woff2 11644 https://fonts.gstatic.com/s/tenorsans/v21/bx6ANxqUneKx06UkIXISn3F4Cl2I.woff2
+font_07.woff2 18588 https://fonts.gstatic.com/s/tenorsans/v21/bx6ANxqUneKx06UkIXISn3V4Cg.woff2
+font_08.woff2 13900 https://fonts.gstatic.com/s/tenorsans/v21/bx6ANxqUneKx06UkIXISn3t4Cl2I.woff2

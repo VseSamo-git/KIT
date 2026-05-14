@@ -10,11 +10,12 @@
 |---|---|---|---|
 | 1 | **Telegram** | `@kitwedding` | Канал и DM |
 | 2 | **Instagram** | `kitwedding` | Основная витрина бренда |
-| 3 | **Facebook** | `happy-kit@yandex.ru` | Учётка владельца, нужна для Meta Business Suite |
-| 4 | **VK** | `+79995209336` | Аккаунт владельца. Группа: [vk.com/wow_decor_spb](https://vk.com/wow_decor_spb) — переименовать в Декор КИТ |
-| 5 | **Pinterest** | `happykitkrd@gmail.com` | Мудборды и трендвотчинг |
-| 6 | **Дзен** | `happy-kit@yandex.ru` | SEO-канал для длинных статей |
-| 7 | **YouTube** | `happykitkrd@gmail.com` | Длинные кейс-видео |
+| 3 | **Threads** | `@kitwedding` (связан с IG) | Реактивные короткие посты, цитаты |
+| 4 | **Facebook** | `happy-kit@yandex.ru` | Учётка владельца, нужна для Meta Business Suite |
+| 5 | **VK** | `+79995209336` | Аккаунт владельца. Группа: [vk.com/wow_decor_spb](https://vk.com/wow_decor_spb) — переименование делают Оля/Андрей сами |
+| 6 | **Pinterest** | `happykitkrd@gmail.com` | Активные публикации + трендвотчинг |
+| 7 | **Дзен** | `happy-kit@yandex.ru` | SEO-канал для длинных статей |
+| 8 | **YouTube** | `happykitkrd@gmail.com` | Активный канал · длинные кейс-видео + Shorts |
 
 ---
 
@@ -23,12 +24,13 @@
 | Платформа | Роль в фабрике | Кто публикует | API / способ |
 |---|---|---|---|
 | Instagram | Главный охват, Reels + кейсы | Publisher (n8n) | Instagram Graph API через Meta Business |
+| Threads | Реактивные короткие посты | Publisher через Meta API | Тот же Meta Business аккаунт |
 | VK | Адаптации, повтор контента | Publisher (n8n) | VK Group token (`messages.send`, `wall.post`) |
 | Telegram | Канал + Idea Inbox + уведомления | Publisher + Idea Bot | Telegram Bot API |
 | Дзен | SEO длинных статей | Publisher (n8n) | Дзен API / Web automation |
-| Pinterest | **Только трендвотчинг (read-only)** | Trend Watcher | Pinterest Trends API |
+| Pinterest | Pins-публикации + трендвотчинг | Publisher (n8n) + Trend Watcher | Pinterest API (v5) |
+| YouTube | Активный · кейс-видео + Shorts | Publisher (полуручной) | YouTube Data API v3 |
 | Facebook | **Только связка с Meta Business** | — | Не публикуем активно, нужна для прав на IG API |
-| YouTube | Долгий формат | Publisher (полуручной) | YouTube Data API v3 |
 
 ---
 

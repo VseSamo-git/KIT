@@ -1,0 +1,158 @@
+<!doctype html>
+<!--
+  Универсальный шаблон ассета. Параметры берёт из URL:
+   ?type=avatar | cover | highlight | post | watermark
+   &w=1080&h=1350
+   &platform=instagram | vk | telegram | youtube | pinterest | dzen | threads | facebook
+   &text=СВАДЬБЫ  (для highlights)
+   &lockup=mark | full | compact (тип логотипа)
+   &slogan=...
+   &invert=1 (paper фон, noir текст)
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link href="./fonts/local.css" rel="stylesheet">
+<style>
+  :root{
+    --noir:#080808; --coal:#1A1A1A; --paper:#F0EDE8; --rose:#C9A99A;
+    --p50:rgba(240,237,232,.5); --p30:rgba(240,237,232,.3);
+    --p15:rgba(240,237,232,.15); --p08:rgba(240,237,232,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:100%;height:100%;overflow:hidden}
+  body{background:var(--noir);color:var(--paper);font-family:'Space Grotesk',sans-serif;font-weight:300;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+  body.invert{background:var(--paper);color:var(--noir)}
+
+  /* SVG mark */
+  .mark{display:block;color:currentColor}
+  .mark svg{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;width:100%;height:100%}
+
+  /* lockup */
+  .lockup{display:flex;flex-direction:column;align-items:center}
+  .lockup .wordmark{font-family:'Tenor Sans',serif;font-weight:400;line-height:1;letter-spacing:.12em}
+  .lockup .script{font-family:'Marck Script',cursive;font-weight:400;line-height:1;position:relative;padding-bottom:.25em}
+  .lockup .script::after{content:"";position:absolute;left:30%;right:30%;bottom:.1em;height:1px;background:currentColor;opacity:.55}
+  .lockup .tagline{font-family:'Space Grotesk',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3em;opacity:.7}
+
+  /* highlight word */
+  .highlight-text{font-family:'Tenor Sans',serif;font-weight:400;letter-spacing:.16em;text-transform:uppercase;text-align:center}
+  .highlight-line{height:1px;background:var(--rose);margin:0 auto;width:48px}
+
+  /* slogan */
+  .slogan{font-family:'Space Grotesk',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.3em;opacity:.6}
+</style>
+</head>
+<body id="root"></body>
+<script>
+const p = new URLSearchParams(location.search);
+const type = p.get('type') || 'avatar';
+const w = +p.get('w') || 320;
+const h = +p.get('h') || 320;
+const text = p.get('text') || '';
+const slogan = p.get('slogan') || '';
+const invert = p.get('invert') === '1';
+
+document.documentElement.style.width = w + 'px';
+document.documentElement.style.height = h + 'px';
+document.body.style.width = w + 'px';
+document.body.style.height = h + 'px';
+if (invert) document.body.classList.add('invert');
+
+const MARK_SVG = `<svg viewBox="0 0 96 80" preserveAspectRatio="xMidYMid meet">
+  <path d="M 48 38 C 36 38, 22 30, 18 14 C 22 6, 34 8, 42 18 C 47 25, 48 32, 48 38 Z"/>
+  <path d="M 48 38 C 60 38, 74 30, 78 14 C 74 6, 62 8, 54 18 C 49 25, 48 32, 48 38 Z"/>
+  <path d="M 48 38 L 48 52"/>
+  <path d="M 10 64 Q 26 56, 48 64 T 86 62"/>
+  <path d="M 18 74 Q 32 68, 48 74 T 78 72"/>
+</svg>`;
+
+function el(tag, attrs={}, kids=[]){
+  const n = document.createElement(tag);
+  for (const k in attrs) {
+    if (k === 'style') n.style.cssText = attrs[k];
+    else if (k === 'html') n.innerHTML = attrs[k];
+    else n.setAttribute(k, attrs[k]);
+  }
+  kids.forEach(c => n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c));
+  return n;
+}
+
+function makeMark(size){
+  return el('span', {class:'mark', style:`width:${size}px;height:${Math.round(size*0.83)}px`, html:MARK_SVG});
+}
+
+function makeLockup(scale, withTagline){
+  const wrap = el('div', {class:'lockup'});
+  wrap.appendChild(makeMark(scale * 1.6));
+  const wordmark = el('div', {class:'wordmark', style:`font-size:${scale}px;margin-top:${scale*0.35}px`});
+  wordmark.textContent = 'КИТ';
+  wrap.appendChild(wordmark);
+  const script = el('div', {class:'script', style:`font-size:${scale*0.55}px;margin-top:${scale*0.05}px`});
+  script.textContent = 'декор';
+  wrap.appendChild(script);
+  if (withTagline) {
+    const tag = el('div', {class:'tagline', style:`font-size:${scale*0.18}px;margin-top:${scale*0.4}px`});
+    tag.textContent = 'ДЕКОР НА МЕРОПРИЯТИЯ';
+    wrap.appendChild(tag);
+  }
+  return wrap;
+}
+
+function build() {
+  const root = document.getElementById('root');
+  root.innerHTML = '';
+  if (type === 'avatar') {
+    const minDim = Math.min(w, h);
+    const markSize = minDim * 0.55;
+    root.appendChild(makeMark(markSize));
+  } else if (type === 'highlight') {
+    const wrap = el('div', {style:'display:flex;flex-direction:column;align-items:center;gap:24px'});
+    wrap.appendChild(makeMark(w*0.18));
+    wrap.appendChild(el('div', {class:'highlight-line'}));
+    const word = el('div', {class:'highlight-text', style:`font-size:${w*0.085}px`});
+    word.textContent = text;
+    wrap.appendChild(word);
+    root.appendChild(wrap);
+  } else if (type === 'cover' || type === 'full') {
+    const lockup = makeLockup(Math.min(w,h)*0.13, true);
+    root.appendChild(lockup);
+    if (slogan) {
+      const s = el('div', {class:'slogan', style:`font-size:${Math.min(w,h)*0.018}px;margin-top:${Math.min(w,h)*0.05}px`});
+      s.textContent = slogan;
+      root.appendChild(s);
+    }
+  } else if (type === 'cover_wide') {
+    // YouTube channel art: safe zone in center
+    const safeW = w * 0.6; // 1546/2560 ≈ 0.6
+    const lockup = makeLockup(safeW*0.05, true);
+    root.appendChild(lockup);
+    if (slogan) {
+      const s = el('div', {class:'slogan', style:`font-size:${safeW*0.012}px;margin-top:${safeW*0.04}px`});
+      s.textContent = slogan;
+      root.appendChild(s);
+    }
+  } else if (type === 'watermark') {
+    document.body.style.background = 'transparent';
+    root.appendChild(makeMark(w*0.6));
+    document.body.style.opacity = '0.6';
+  }
+  document.body.dataset.ready = '1';
+}
+
+async function preloadFonts() {
+  if (!document.fonts) return;
+  try {
+    await Promise.all([
+      document.fonts.load('400 64px "Tenor Sans"', 'КИТКит'),
+      document.fonts.load('400 32px "Marck Script"', 'декорабсг'),
+      document.fonts.load('400 16px "Space Grotesk"', 'ДЕКОР НА МЕРОПРИЯТИЯ'),
+      document.fonts.load('300 16px "Space Grotesk"', 'абвгдеёжзийклмн'),
+    ]);
+    await document.fonts.ready;
+  } catch (e) { /* ignore */ }
+}
+
+preloadFonts().then(build);
+</script>
+</html>
